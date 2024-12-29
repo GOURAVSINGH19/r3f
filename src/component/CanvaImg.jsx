@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import gsap from "gsap";
 import vertexShader from "./Shader/vertex.glsl";
@@ -6,18 +6,23 @@ import fragmentShader from "./Shader/fragment.glsl";
 import * as THREE from "three";
 
 function ImageMesh({ img }) {
-  console.log(img);
-  const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load(
-    img.src,
-    () => {
-      console.log('Texture loaded');
-    },
-    undefined, 
-    (err) => {
-      console.error('Texture failed to load:', err);
-    }
-  );
+  const [texture, setTexture] = useState(null);
+  const imgSrc = img.src;
+
+  useEffect(() => {
+    const textureLoader = new THREE.TextureLoader();
+    const newTexture = textureLoader.load(
+      imgSrc,
+      () => {
+        console.log("Texture loaded");
+      },
+      undefined,
+      (err) => {
+        console.error("Texture failed to load:", err);
+      }
+    );
+    setTexture(newTexture);
+  }, [imgSrc]);
 
   const meshRef = useRef();
   const materialRef = useRef();

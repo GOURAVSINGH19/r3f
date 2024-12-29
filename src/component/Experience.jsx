@@ -1,8 +1,8 @@
-import { Environment, useTexture } from "@react-three/drei";
-import { RigidBody } from "@react-three/rapier";
+import { Environment, PerspectiveCamera, useTexture } from "@react-three/drei";
 import React, { useEffect } from "react";
 import Lenis from "lenis";
 import ImageMesh from "./CanvaImg";
+import { useThree } from "@react-three/fiber";
 
 const Experience = () => {
   const [normal] = useTexture(["/SurfaceImperfections003_1K_Normal.jpg"]);
@@ -19,9 +19,13 @@ const Experience = () => {
 
   const images = [...document.querySelectorAll("[data-webgl-media]")];
 
-  
+  const { camera } = useThree();
+
+  const fov =2 * Math.atan(window.innerHeight / (2 * 500)) * (180 / Math.PI);
+
   return (
     <>
+      <PerspectiveCamera fov={fov} />
       <mesh
         rotation-x={-Math.PI / 2}
         position-y={-1.5}

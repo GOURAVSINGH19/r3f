@@ -8,7 +8,7 @@ const Images = () => {
       gap-[20em] whitespace-nowrap place-items-center"
     >
       <div className="w-full  h-fit">
-        <div className="w-[40em] h-[25em] c_img opacity-0">
+        <div className="w-[40em] h-[25em] c_img">
           <img
             src="/photo-1.avif"
             alt="imgs"
@@ -22,17 +22,17 @@ const Images = () => {
           <img
             src="https://images.unsplash.com/photo-1732888329753-0ff89467e6c8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D"
             alt="imgs"
-            className="object-cover w-full select-none overflow-hidden object-center opacity-0"
+            className="object-cover w-full select-none overflow-hidden object-center"
             data-webgl-media
           />
         </div>
       </div>
       <div className="w-full">
-        <div className="w-[40em] h-[25em] c_img ">
+        <div className="w-[40em] h-[25em] c_img overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1721332154161-847851ea188b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D"
             alt="imgs"
-            className="object-cover w-full h-fit select-none overflow-hidden object-center"
+            className="object-cover w-full  select-none overflow-hidden object-center"
             data-webgl-media
           />
         </div>
