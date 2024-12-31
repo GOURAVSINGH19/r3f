@@ -24,8 +24,8 @@ void main()
     pos.z += wave * circle * uEnter;
     // pos.x += - uMouse.x * .1;
 
-    float scale = 0.1;  
-    pos.xy *= 1.0 + scale * uEnter;
+    // float scale = 0.1;  
+    // pos.xy *= 1.0 + scale * uEnter;
 
     vCircle = wave * uEnter * circle;
 
