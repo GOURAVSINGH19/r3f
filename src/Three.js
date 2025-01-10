@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import gsap from "gsap";
-import vertexShader from "./component/Shader/vertex.glsl";
-import fragmentShader from "./component/Shader/fragment.glsl";
+import vertexShader from "./Shader/vertex.glsl";
+import fragmentShader from "./Shader/fragment.glsl";
 import Lenis from "lenis";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
@@ -23,7 +23,6 @@ let webglImages = [];
 
 function setimageArray() {
   const images = [...document.querySelectorAll("[data-webgl-media]")];
-
   const imageGeo = new THREE.PlaneGeometry(1, 1, 30, 30);
   webglImages = images.map((img, i) => {
     // img.style.opacity = 0
@@ -92,9 +91,10 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 document.body.appendChild(renderer.domElement);
 
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableZoom = false;
+controls.enableDamping = false;
 
 const lenis = new Lenis();
-
 function raf(time) {
   lenis.raf(time);
   requestAnimationFrame(raf);

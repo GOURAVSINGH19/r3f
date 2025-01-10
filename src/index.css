@@ -12,11 +12,6 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: reg;
-  src: url("/pp.otf");
-}
-
 #main {
   width: 100%;
   height: 100vh;
@@ -53,7 +48,7 @@ html {
 }
 
 .link-item {
-  transition: filter 0.3s ease-in-out; 
+  transition: filter 0.3s ease-in-out;
 }
 
 .blur-effect {
@@ -67,8 +62,80 @@ html {
 canvas {
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 10;
   width: 100%;
   height: 100%;
   pointer-events: none;
+}
+
+.counter {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  right: 10%;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: #797671;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter div {
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+}
+
+.counter__li {
+  position: absolute;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.preloader {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 999999;
+  background-color: #141516;
+}
+
+.svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 300px);
+  path {
+    fill: #141516;
+  }
+}
+
+.word {
+  display: flex;
+  font-size: 42px;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+}
+
+.bg-svg{
+  clip-path: polygon(
+    calc(100% - 2rem) 0,
+    100% 2rem,
+    100% calc(100% - 3rem),
+    calc(100% - 7rem) calc(100% - 3rem),
+    calc(100% - 9rem) 100%,
+    2rem 100%,
+    0 calc(100% - 2rem),
+    0 3rem,
+    10rem 3rem,
+    12rem 0
+  );
+  background-color: #11131197;
 }
