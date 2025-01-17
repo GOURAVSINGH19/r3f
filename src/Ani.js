@@ -42,11 +42,11 @@ const animateText = (textElement) => {
       .join("");
 
     if (iteration >= originalText.length) {
-      clearInterval(newIntervalId); // Stop after all letters are revealed
+      clearInterval(newIntervalId);
     }
 
     iteration++;
-  }, 50); // Adjust this value for the speed of the animation
+  }, 50);
 };
 
 // Mouseover event listener
@@ -56,6 +56,7 @@ addEventListener("mouseover", (event) => {
   }
 });
 
+// preloader and home animation
 const preloader = document.querySelector(".preloader");
 const wordElement = document.getElementsByClassName("word");
 function startLoader() {
@@ -75,12 +76,10 @@ function startLoader() {
   }
   updateText();
 }
-
 startLoader();
 
 let direction = -1;
 let xPercent = 0;
-
 
 tl.to(preloader, {
   y: "-100vh",
@@ -91,7 +90,7 @@ tl.to(preloader, {
     gsap.to(".middle_text", {
       duration: 1,
       opacity: 0.6,
-      delay:5,
+      delay: 5,
       ease: "power4.out",
     });
 
@@ -111,14 +110,11 @@ tl.to(preloader, {
     gsap.to(".models-canvas", {
       opacity: 1,
       duration: 1.5,
-      ease: "back.inOut",
+      ease: "linear",
     });
     requestAnimationFrame(animate);
   },
-});
-
-
-tl.to(
+}).to(
   wordElement,
   {
     opacity: 0,
@@ -134,10 +130,107 @@ const animate = () => {
     xPercent = -100;
   }
   gsap.set(".middle_text", { xPercent: xPercent });
-  gsap.set(".middle_text", { xPercent: xPercent });
   requestAnimationFrame(animate);
   xPercent += 0.1 * direction;
 };
+
+// abt section
+const abtsection = document.querySelector(".sect_2");
+const divsec = document.querySelector(".sect_cnt");
+
+const timelineabt = gsap.timeline({
+  scrollTrigger: {
+    trigger: divsec,
+    start: "top top",
+    end: "bottom top",
+    scrub: 1,
+    toggleActions: "play reverse play reverse",
+  },
+});
+
+timelineabt
+  .to(".abt-text-ani", {
+    y: 0,
+    opacity: 1,
+    duration: 2,
+    ease: "cubic-bezier(0.26,0,0.6,0.2)",
+    stagger: 0.5,
+  })
+  .to(
+    ".abt-text-1",
+    {
+      y: -100,
+      duration: 2,
+      delay: 0.5,
+      ease: "linear",
+    },
+    "-=.5"
+  )
+  .to(
+    ".abt-text-2",
+    {
+      y: 0,
+      duration: 2,
+      ease: "cubic-bezier(0.26,0,0.6,0.2)",
+    },
+    "-=.1"
+  );
+
+// section3 animation
+
+const Psect = document.querySelector(".sect_3");
+const imgcnt = document.querySelector(".img-cnt");
+
+const timeline3 = gsap.timeline({
+  scrollTrigger: {
+    trigger: Psect,
+    start: "5% top",
+    end: "bottom top",
+    pin: true,
+    markers: true,
+    scrub: 1,
+  },
+});
+
+timeline3.to(imgcnt, {
+  marginTop: "-300vh",
+  duration: .5,
+  ease: "linear",
+});
+
+// html text-animation
+const text = [...document.querySelectorAll(".text")];
+text.forEach((item) => {
+  // text[1].classList.add("hover");
+  item.addEventListener("click", () => {
+    text.forEach((item) => {
+      item.classList.remove("hover");
+      gsap.to(item, {
+        duration: 0.5,
+        ease: "power2.inOut",
+      });
+    });
+    item.classList.add("hover");
+  });
+});
+
+const links = document.querySelectorAll(".link-item");
+
+links.forEach((link) => {
+  link.classList.add("active");
+
+  link.addEventListener("mouseover", () => {
+    links.forEach((l) => {
+      l.classList.add("blur-effect");
+      l.classList.remove("active");
+    });
+    link.classList.remove("blur-effect");
+  });
+
+  link.addEventListener("mouseout", () => {
+    links.forEach((l) => l.classList.remove("blur-effect"));
+  });
+});
 
 const refreshScrollTrigger = () => {
   ScrollTrigger.clearScrollMemory();

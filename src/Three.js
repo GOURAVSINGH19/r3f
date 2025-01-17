@@ -149,37 +149,3 @@ function animate() {
   updatePlanesPosition();
   renderer.render(scene, camera);
 }
-
-// html text-animation
-const text = [...document.querySelectorAll(".text")];
-text.forEach((item) => {
-  // text[1].classList.add("hover");
-  item.addEventListener("click", () => {
-    text.forEach((item) => {
-      item.classList.add("hover");
-      gsap.to(item, {
-        duration: 0.5,
-        ease: "power2.inOut",
-      });
-    });
-    item.classList.remove("hover");
-  });
-});
-
-const links = document.querySelectorAll(".link-item");
-
-links.forEach((link) => {
-  link.classList.add("active");
-
-  link.addEventListener("mouseover", () => {
-    links.forEach((l) => {
-      l.classList.add("blur-effect");
-      l.classList.remove("active");
-    });
-    link.classList.remove("blur-effect");
-  });
-
-  link.addEventListener("mouseout", () => {
-    links.forEach((l) => l.classList.remove("blur-effect"));
-  });
-});

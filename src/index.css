@@ -4,25 +4,47 @@
 
 :root {
   --fontSize: 1.4rem;
+  --fontweight: 1;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  height: 100vh;
+}
+
+body:after,
+body:before {
+  font-family: light;
+  position: fixed;
+  left: 0;
+  top: 0;
+  content: "";
+  width: 100%;
+  height: 100vh;
+  z-index: 3023023023020;
+  pointer-events: none;
+  opacity: 20%;
+  color: #151515;
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body:before {
+  filter: url(#grainy);
 }
 
 #main {
   width: 100%;
   height: 100vh;
-}
-
-body,
-html {
-  width: 100%;
-  height: 100vh;
-  font-family: reg;
-  scrollbar-width: none;
 }
 
 .bg-radialgradiant {
@@ -62,29 +84,30 @@ html {
 canvas {
   position: fixed;
   inset: 0;
+  top: 0;
+  left: 0;
   z-index: 10;
   width: 100%;
   height: 100%;
   pointer-events: none;
 }
 
-.counter {
+#model-canvas {
   position: absolute;
-  top: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.counter {
   display: flex;
-  right: 10%;
   overflow: hidden;
   pointer-events: none;
   background-color: #797671;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.counter div {
-  width: 25px;
-  height: 25px;
-  overflow: hidden;
 }
 
 .counter__li {
@@ -105,17 +128,6 @@ canvas {
   background-color: #141516;
 }
 
-.svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: calc(100% + 300px);
-  path {
-    fill: #141516;
-  }
-}
-
 .word {
   display: flex;
   font-size: 42px;
@@ -124,9 +136,10 @@ canvas {
   z-index: 1;
 }
 
+
 .bg-svg{
   clip-path: polygon(
-    calc(100% - 2rem) 0,
+    calc(100% - 0rem) 0,
     100% 2rem,
     100% calc(100% - 3rem),
     calc(100% - 7rem) calc(100% - 3rem),
@@ -137,5 +150,35 @@ canvas {
     10rem 3rem,
     12rem 0
   );
-  background-color: #11131197;
+  background-color: #141516;
+}
+
+
+#canvas {
+  clip-path: polygon(
+    calc(100% - 0rem) 0,
+    100% 2rem,
+    100% calc(100% - 3rem),
+    calc(100% - 7rem) calc(100% - 3rem),
+    calc(100% - 9rem) 100%,
+    2rem 100%,
+    0 calc(100% - 2rem),
+    0 3rem,
+    10rem 3rem,
+    12rem 0
+  );
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1px);
+  }
+}
+
+.arrow:hover {
+  animation: bounce 1s infinite; /* Apply bounce animation */
 }

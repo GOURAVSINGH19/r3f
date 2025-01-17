@@ -3,8 +3,13 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { mod } from "three/src/nodes/TSL.js";
 gsap.registerPlugin(ScrollTrigger);
+
+// Sizes
+const sizes = {
+  width: window.innerWidth,
+  height: window.innerHeight,
+};
 
 // Loaders
 const canvas = document.querySelector(".models-canvas");
@@ -21,9 +26,16 @@ const tl = gsap.timeline();
 // Load the .glb model
 gltfLoader.load("/models/Avatar.glb", (gltf) => {
   model = gltf.scene;
-  const md = scene.add(model);
+  model.receiveShadow = true;
+  model.castShadow = true;
+  scene.add(model);
   model.position.set(0, -1, -1);
-  // camera.lookAt(0, 1, 0);
+  camera.lookAt(0, 1, 0);
+
+  if (window.innerWidth < 450) {
+    model.scale.set(0.8, 0.8, 0.8);
+  }
+
   // animation
   fbxLoader.load("/animation/Texting.fbx", (fbx) => {
     if (!model) {
@@ -40,32 +52,23 @@ gltfLoader.load("/models/Avatar.glb", (gltf) => {
       console.log("No animations found in the FBX file.");
     }
   });
-  // Camera animation - slow and smooth transition
   tl.fromTo(
     camera.position,
     {
-      y: 14,
-      z: 0,
+      y: 8,
+      z: 3,
     },
     {
       y: 0,
       z: 5,
-      duration: 10, 
-      ease: "power1.inOut", 
+      duration: 10,
+      ease: "power1.inOut",
     }
   );
-
-  // Optional: Make sure the camera looks at the model after the animation
   tl.call(() => {
     camera.lookAt(model.position);
   });
 });
-
-// Sizes
-const sizes = {
-  width: window.innerWidth,
-  height: window.innerHeight,
-};
 
 // resize
 window.addEventListener("resize", () => {
@@ -87,36 +90,41 @@ const camera = new THREE.PerspectiveCamera(
   100
 );
 camera.position.set(0, 0, 5);
-camera.lookAt(0, 1, 0);
 scene.add(camera);
 
 // Controls
 const controls = new OrbitControls(camera, canvas);
 controls.enableZoom = false;
-controls.enableDamping = true;
+controls.enableDamping = false;
 controls.dampingFactor = 0.25;
-controls.screenSpacePanning = false;
+controls.enablePan = false;
 
 // Lighting
 const pointLight = new THREE.PointLight("white", 3, 100, 5);
 pointLight.position.set(0, -0.2, 0);
+pointLight.castShadow = true;
 scene.add(pointLight);
 
 const pointLight2 = new THREE.PointLight("#ffcc00", 9, 10);
 pointLight2.position.set(0.1, -2, 0);
+pointLight2.castShadow = true;
 scene.add(pointLight2);
 
 const pointLight3 = new THREE.PointLight("#693C72", 5, 10);
 pointLight3.position.set(0, -0.5, -1);
 pointLight3.scale.set(3, 3, 3);
+pointLight3.castShadow = true;
 scene.add(pointLight3);
-
-// const pointLightHelper = new THREE.PointLightHelper(pointLight3, 1);
-// scene.add(pointLightHelper);
 
 const directionalLight = new THREE.DirectionalLight("#ffffff", 5);
 directionalLight.position.set(-1, 5, 3);
 scene.add(directionalLight);
+
+// const pointLightHelper = new THREE.PointLightHelper(pointLight3, 1);
+// scene.add(pointLightHelper);
+
+const ambinentlight = new THREE.AmbientLight("#ffffff", 5);
+scene.add(ambinentlight);
 
 // const helper = new THREE.DirectionalLightHelper(directionalLight, 5);
 // scene.add(helper);
@@ -131,16 +139,18 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 const tick = () => {
   window.requestAnimationFrame(tick);
 
   if (mixer) {
-    mixer.update(0.01);
+    mixer.update(0.02);
   }
-  controls.update(); // Update controls every frame
+  controls.update();
 
-  renderer.render(scene, camera); // Render the scene
+  renderer.render(scene, camera);
 };
 
 tick();
