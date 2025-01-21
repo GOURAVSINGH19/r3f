@@ -148,56 +148,54 @@ const timelineabt = gsap.timeline({
   },
 });
 
-timelineabt
-  .to(".abt-text-ani", {
-    y: 0,
-    opacity: 1,
-    duration: 2,
-    ease: "cubic-bezier(0.26,0,0.6,0.2)",
-    stagger: 0.5,
-  })
-  .to(
-    ".abt-text-1",
-    {
-      y: -100,
-      duration: 2,
-      delay: 0.5,
-      ease: "linear",
-    },
-    "-=.5"
-  )
-  .to(
-    ".abt-text-2",
-    {
-      y: 0,
-      duration: 2,
-      ease: "cubic-bezier(0.26,0,0.6,0.2)",
-    },
-    "-=.1"
-  );
-
 // section3 animation
+const fun = () => {
+  console.log("play");
+  const Psect = document.querySelector(".sect_3");
+  const imgcnt = document.querySelector(".img_cnt");
 
-const Psect = document.querySelector(".sect_3");
-const imgcnt = document.querySelector(".img-cnt");
+  const timeline3 = gsap.timeline({
+    scrollTrigger: {
+      trigger: Psect,
+      start: "2% top",
+      end: "bottom top",
+      pin: true,
+      scrub: 1,
+    },
+  });
 
-const timeline3 = gsap.timeline({
+  timeline3.to(imgcnt, {
+    marginTop: "-350vh",
+    duration: 0.8,
+    ease: "linear",
+  });
+};
+
+fun();
+
+// footer color
+const footertimeline = gsap.timeline({
   scrollTrigger: {
-    trigger: Psect,
-    start: "5% top",
-    end: "bottom top",
-    pin: true,
-    markers: true,
-    scrub: 1,
+    trigger: ".footer",
+    start: "10% 80%",
+    end: "80% 80%",
+    scrub: true,
   },
 });
 
-timeline3.to(imgcnt, {
-  marginTop: "-300vh",
-  duration: .5,
-  ease: "linear",
-});
-
+// footertimeline
+//   .from(".animate-bg", {
+//     borderRadius: "0em",
+//     height: "105.493%",
+//     width: "109.801%",
+//     ease: "linear",
+//   })
+//   .to(".animate-bg", {
+//     width: "95%",
+//     height: "95%",
+//     borderRadius: "1em",
+//     ease: "linear",
+//   });
 // html text-animation
 const text = [...document.querySelectorAll(".text")];
 text.forEach((item) => {

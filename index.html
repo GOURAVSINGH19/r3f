@@ -40,13 +40,17 @@
               </a>
             </div>
           </div>
+          <span class="w-[1px] bg-bg3 h-[.8rem] rotate-6"></span>
           <div class="abt-wrk flex items-center pointer-events-auto">
             <div class="flex gap-1 w-full">
-              <span class="w-[1px] bg-bg3 h-[1.5rem]"></span>
               <span
                 class="w-fit text_size ml-1 cursor-pointer flex items-center gap-2"
               >
-                <h1 class="text">wrk</h1>
+                <h1
+                  class="text text-zinc-400 duration-500 ease-in-out hover:text-text"
+                >
+                  wrk
+                </h1>
               </span>
             </div>
           </div>
@@ -93,17 +97,17 @@
             class="relative bg-svg overflow-hidden w-full h-full flex justify-center items-center home_section pointer-events-none"
           >
             <div
-              class="slider flex uppercase whitespace-nowrap w-full overflow-hidden"
+              class="slider flex uppercase whitespace-nowrap w-full overflow-hidden text-black"
             >
               <p
                 class="text-[100px] sm:text-[8rem] lg:text-[10rem] first-text middle_text opacity-0"
               >
-                Gourav singh -
+                frontend Developer -
               </p>
               <p
                 class="text-[100px] sm:text-[8rem] lg:text-[10rem] second-text middle_text opacity-0"
               >
-                Gourav singh -
+                frontend Developer -
               </p>
             </div>
           </div>
@@ -131,89 +135,96 @@
         <section
           class="w-full h-screen p-[1.5rem] text-white sect_cnt relative mb-2"
         >
-          <div
-            class="w-full h-full sm:flex-col md:flex justify-center items-center sect_2 relative"
-          >
-            <div
-              class="w-full flex justify-center items-center absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] opacity-[.5]"
-            >
+          <div class="w-full h-full sect_2 relative grid-container">
+            <!-- Left Section (Text Content) -->
+            <div class="relative text lg:w-[34rem] h-full">
+              <p
+                class="w-full text-start text-[1rem] px-[3rem] py-[2rem] mt-10 relative"
+              >
+                <span class="text-start abt-text-ani relative">
+                  I’m Gourav Singh, a passionate
+                  <span class="font-semibold">Frontend</span>
+                  <span class="font-semibold">Creative</span>
+                  Developer
+                </span>
+                <span>
+                  with a deep commitment to "designing innovative user
+                  experiences" and "building dynamic and responsive websites".
+                </span>
+              </p>
+            </div>
+
+            <!-- Right Section (Image) -->
+            <div class="w-full flex justify-center items-center photo">
               <img
                 src="https://images.unsplash.com/photo-1733725071146-5e4157a308da?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5fHx8ZW58MHx8fHx8"
                 alt="person-img"
-                class="w-[24rem] lg:w-[20rem] lg:h-[20rem]"
+                class="w-[20rem] lg:w-[20rem] sm:w-[20rem] rounded-lg"
               />
             </div>
+
             <div
-              class="sm:w-full md:w-[50rem] h-full lg:h-fit relative text-center text-zinc-300 flex-1 text-[1.5rem] md:text-[2rem] flex justify-center items-center flex-col text-sect"
+              class="w-full menu px-[3rem] py-[2rem] gap-5 flex justify-center items-center"
             >
-              <h1 class="font-light overflow-hidden">
-                <span
-                  class="w-full flex-wrap text-center -translate-y-full abt-text-ani flex justify-center relative gap-3"
-                >
-                  I’m Gourav Singh, a passionate
-                  <span
-                    class="w-fit text-white relative h-fit sm:h-8 md:h-14 overflow-hidden flex-col"
-                  >
-                    <p class="abt-text-1">Fullstack Developer</p>
-                    <p
-                      class="transition-transform abt-text-2 absolute top-0 translate-y-12"
-                    >
-                      Creative Designer
-                    </p>
-                  </span>
-                </span>
-              </h1>
-              <h2 class="font-light overflow-hidden">
-                <span class="block -translate-y-full abt-text-ani">
-                  with expertise in crafting responsive, user-friendly websites
-                  using modern technologies.
-                </span>
-              </h2>
+              <span>React</span>
+              <span>React</span>
+              <span>React</span>
+              <span>React</span>
+              <span>React</span>
             </div>
           </div>
         </section>
         <section
-          class="w-full h-screen overflow-hidden relative px-[2.5rem] sect_3"
+          data-sect="sect_3"
+          class="w-full min-h-screen md:h-screen overflow-hidden relative px-[1.5rem] md:px-[2.5rem] sect_3 "
         >
-          <!-- <div class="w-full h-fit border-t-[.4px] mb-2">
-            <h1 class="mt-4 uppercase text-start text-[1rem]">The project showcases my proficiency in both front-end and back-end development, problem-solving, and ability to deliver scalable, high-performance applications.</h1>
-          </div> -->
-          <div class="relative w-full h-screen overflow-hidden">
-            <div class="w-full h-full absolute top-0">
-              <div class="w-full h-full"></div>
+          <div class="relative w-full h-full overflow-hidden">
+            <div class="w-full h-full  relative md:absolute mb-[4rem]">
+              <div class="w-full h-fit border-t-[.4px] mb-2">
+                <h1
+                  class="uppercase text-start text-sm w-[25rem] flex flex-col flex-1 mt-[2rem] md:ml-10"
+                >
+                  <span>The project showcases my proficiency in front-end</span>
+                  <span
+                    >problem-solving, and ability to deliver scalable,
+                    high-performance applications.</span
+                  >
+                </h1>
+              </div>
+              <div class="w-full h-full relative">
+                <canvas class="models2-canvas"></canvas>
+              </div>
+              
             </div>
-            <div class="w-full place-items-center overflow-hidden relative">
-              <div
-                class="w-full mt-[100vh] flex flex-col img-cnt justify-center items-center gap-[6rem]"
-              >
+            <div class="w-full place-items-center md:overflow-hidden relative">
+              <div  class="w-full md:mt-[100vh] md:img_cnt flex flex-col justify-center items-center md:gap-[6rem]">
                 <div
-                  class="w-full h-[25rem] flex flex-col justify-center items-start mb-2 scroll-items"
+                  class="w-full h-[25rem] flex flex-col justify-center items-start mb-[4rem] md:mb-2 scroll-items"
                 >
                   <div class="c_img">
                     <a href="/">
                       <img
                         src="https://images.unsplash.com/photo-1733235014927-32494ec8233b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D"
                         alt="imgs"
-                        class="object-cover w-[30rem] h-fit select-none overflow-hidden opacity-0"
+                        class="object-cover w-full md:w-[30rem] h-fit select-none overflow-hidden md:opacity-0"
                         data-webgl-media
-                        data-transform=".6"
                       />
                     </a>
-                    <div class="flex flex-1 mt-3 gap-5 justify-end">
+                    <div class="flex flex-1 mt-3 gap-5 justify-start ">
                       <p>1.</p>
                       <h1 data-text>Movie Application</h1>
                     </div>
                   </div>
                 </div>
                 <div
-                  class="w-full h-[30rem] flex flex-col justify-center items-end mb-2 scroll-items"
+                  class="w-full h-[30rem] flex flex-col justify-center items-end mb-[4rem] md:mb-2 scroll-items"
                 >
                   <div class="c_img">
                     <a href="/">
                       <img
                         src="https://images.unsplash.com/photo-1732888329753-0ff89467e6c8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D"
                         alt="imgs"
-                        class="object-cover w-[35rem] select-none overflow-hidden object-center opacity-0"
+                        class="object-cover w-full md:w-[35rem] select-none overflow-hidden object-center md:opacity-0"
                         data-webgl-media
                       />
                     </a>
@@ -224,32 +235,32 @@
                   </div>
                 </div>
                 <div
-                  class="w-full h-[30rem] flex-col flex justify-center items-start mb-2 scroll-items"
+                  class="w-full h-full md:h-[30rem] flex-col flex items-center justify-center md:items-start mb-[4rem] md:mb-2 scroll-items"
                 >
                   <div class="c_img">
                     <a href="/">
                       <img
                         src="https://plus.unsplash.com/premium_photo-1733514691555-f6753d15df38?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0OHx8fGVufDB8fHx8fA%3D%3D"
                         alt="imgs"
-                        class="object-cover w-[24rem] select-none overflow-hidden object-center opacity-0 ml-[10rem]"
+                        class="object-cover w-full md:w-[24rem] select-none overflow-hidden object-center md:opacity-0 md:ml-[10rem]"
                         data-webgl-media
                       />
                     </a>
-                    <div class="flex flex-1 mt-3 gap-5 justify-end">
+                    <div class="flex flex-1 mt-3 gap-5 justify-start">
                       <p>1.</p>
                       <h1 data-text>Movie Application</h1>
                     </div>
                   </div>
                 </div>
                 <div
-                  class="w-full h-[30rem] flex-col flex justify-start items-center mb-5 scroll-items"
+                  class="w-full h-full md:h-[30rem] flex-col flex justify-center items-center mb-5 scroll-items"
                 >
-                  <div class="w-[30rem] h-[30rem] c_img">
+                  <div class="w-full h-[30rem] c_img">
                     <a href="/">
                       <img
                         src="https://plus.unsplash.com/premium_photo-1734303709945-401232303d13?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3MHx8fGVufDB8fHx8fA%3D%3D"
                         alt="imgs"
-                        class="object-cover w-[28rem] select-none overflow-hidden ml-[2rem] opacity-0"
+                        class="object-cover w-full md:w-[28rem] select-none overflow-hidden md:ml-[2rem] md:opacity-0"
                         data-webgl-media
                       />
                     </a>
@@ -265,54 +276,59 @@
         </section>
       </main>
 
-      <footer
-        class="w-full h-[20rem] bg-bg1 justify-between flex items-end p-[4.5rem]"
-      >
-        <div
-          class="links pointer-events-auto w-full items-center justify-center sm:flex sm:justify-between"
-        >
-          <div
-            class="flex items-center justify-center space-x-4 text_size mb-2"
-          >
-            <span class="relative">
-              <a
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="link-item blur-effect hover:active"
-                >li</a
+      <footer class="w-full h-full footer relative">
+        <div class="w-full h-full absolute z-5 pb-[3rem] md:pl-[3rem] md:pr-[3rem] pt-[3rem] flex justify-center items-center pointer-events-none">
+          <div class="w-full h-full flex flex-col">
+            <div class="w-full h-full ">
+              <button
+                class="btn text-zinc-800 rounded-md duration-500 ease-in-out flex flex-col overflow-hidden items-start"
               >
-            </span>
-            <span class="relative">
-              <a
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="link-item blur-effect hover:active"
-                >Gi</a
+                <span class="text">Let's connect</span>
+              </button>
+              <div class="links flex items-center justify-center space-x-4 text_size mb-2"
               >
-            </span>
-            <span class="relative">
-              <a
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="link-item blur-effect hover:active"
-                >x</a
-              >
-            </span>
-          </div>
-          <div class="addrs-conct text_size cursor-pointer">
-            <div
-              class="flex items-center justify-center w-full sm:w-fit flex-col"
-            >
-              <span class="lowercase">gouravsingh4495@gamil.com</span>
-              <span data-text>+91 954-156-0130</span>
+                <span class="relative">
+                  <a
+                    href="http://"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-item blur-effect hover:active"
+                    >li</a
+                  >
+                </span>
+                <span class="relative">
+                  <a
+                    href="http://"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-item blur-effect hover:active"
+                    >Gi</a
+                  >
+                </span>
+                <span class="relative">
+                  <a
+                    href="http://"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-item blur-effect hover:active"
+                    >x</a
+                  >
+                </span>
+              </div>
+              <div class="addrs-conct text_size cursor-pointer">
+                <div
+                  class="flex items-center justify-center w-full sm:w-fit flex-col"
+                >
+                  <span class="lowercase">gouravsingh4495@gamil.com</span>
+                  <span data-text>+91 954-156-0130</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+        <div class="w-full h-full bg-bg2 animate-bg "></div>
+      </footer> 
+   </div>
 
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script
@@ -330,6 +346,7 @@
     <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
     <script type="module" src="/src/Three.js"></script>
     <script type="module" src="/src/Model.js"></script>
+    <script type="module" src="/src/Model2.js"></script>
     <script type="module" src="/src/Ani.js"></script>
   </body>
 </html>
