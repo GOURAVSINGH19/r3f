@@ -9,17 +9,18 @@
     <link rel="stylesheet" href="./src/index.css" />
   </head>
   <body class="text-text">
-    <div class="preloader text-text">
+    <!-- loader -->
+    <!-- <div class="preloader text-text">
       <p id="word-container">
         <h1 class="text-[6vw] font-[light] overflow-hidden word">
           0%
         </h1>
         
       </p>
-    </div> 
+    </div>  -->
 
     <div id="main">
-      <!-- desktop -->
+      <!-- nav -->
       <nav
         class="nav-bar w-[100vw] h-full fixed top-0 -left-10 z-[100] px-[4.5rem] py-[1rem] pointer-events-none"
       >
@@ -56,6 +57,7 @@
           </div>
         </div>
       </nav>
+      <!-- mian -->
       <main
         class="w-screen bg-bg1 min-h-screen overflow-y-auto overflow-x-hidden relative"
       >
@@ -135,52 +137,91 @@
         <section
           class="w-full h-screen p-[1.5rem] text-white sect_cnt relative mb-2"
         >
-          <div class="w-full h-full sect_2 relative grid-container">
-            <!-- Left Section (Text Content) -->
-            <div class="relative text lg:w-[34rem] h-full">
-              <p
-                class="w-full text-start text-[1rem] px-[3rem] py-[2rem] mt-10 relative"
+          <div class="w-full h-full relative grid-container">
+            <div class="relative w-full h-full md:p-[1rem]">
+              <h1 class="text-[.7rem] uppercase relative flex gap-2">
+                <span data-brc class="relative">
+                  <span class="absolute left-1">[</span>
+                </span>
+                <span data-abt class="ml-2 mr-2">about</span>
+                <span data-brc class="relative">
+                  <span class="absolute right-1">]</span>
+                </span>
+              </h1>
+              <div class="w-full h-[30rem] relative flex flex-col">
+                <div
+                  class="w-full md:px-[3rem] py-[2rem] flex justify-end items-end flex-col relative md:mr-[5rem] mt-5 md:mt-10"
+                >
+                  <div class="flex flex-col w-fit text-lg">
+                    <p class="text-start relative capitalize">
+                      I’m Gourav Singh, a passionate
+                      <span class="font-semibold">Frontend</span>
+                      <span class="font-semibold">Creative</span>
+                      Developer
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="w-full h-auto flex flex-1 flex-wrap justify-start lg:justify-end lg:px-[7rem]"
               >
-                <span class="text-start abt-text-ani relative">
-                  I’m Gourav Singh, a passionate
-                  <span class="font-semibold">Frontend</span>
-                  <span class="font-semibold">Creative</span>
-                  Developer
-                </span>
-                <span>
-                  with a deep commitment to "designing innovative user
-                  experiences" and "building dynamic and responsive websites".
-                </span>
-              </p>
-            </div>
-
-            <!-- Right Section (Image) -->
-            <div class="w-full flex justify-center items-center photo">
-              <img
-                src="https://images.unsplash.com/photo-1733725071146-5e4157a308da?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5fHx8ZW58MHx8fHx8"
-                alt="person-img"
-                class="w-[20rem] lg:w-[20rem] sm:w-[20rem] rounded-lg"
-              />
-            </div>
-
-            <div
-              class="w-full menu px-[3rem] py-[2rem] gap-5 flex justify-center items-center"
-            >
-              <span>React</span>
-              <span>React</span>
-              <span>React</span>
-              <span>React</span>
-              <span>React</span>
+                <div>
+                  <p
+                    data-bg
+                    class="px-3 py-2 uppercase text-inherit text-[1rem] md:text-[1.5rem] cursor-pointer rounded-md"
+                  >
+                    <sup class="text-[9px] mr-2">[</sup>
+                    <span class="w-10">Next</span>
+                    <sup class="text-[9px] ml-2">]</sup>
+                  </p>
+                </div>
+                <div>
+                  <p
+                    data-bg
+                    class="px-3 py-2 uppercase text-inherit text-[1rem] md:text-[1.5rem] cursor-pointer rounded-md"
+                  >
+                    <sup class="text-[9px] mr-2">[</sup>
+                    <span>react</span>
+                    <sup class="text-[9px] ml-2">]</sup>
+                  </p>
+                </div>
+                <div>
+                  <p
+                    data-bg
+                    class="px-3 py-2 uppercase text-inherit text-[1rem] md:text-[1.5rem] cursor-pointer rounded-md"
+                  >
+                    <sup class="text-[9px] mr-2">[</sup>
+                    <span>THREE</span>
+                    <sup class="text-[9px] ml-2">]</sup>
+                  </p>
+                </div>
+                <div>
+                  <p
+                    data-bg
+                    class="px-3 py-2 uppercase text-inherit text-[1rem] md:text-[1.5rem] cursor-pointer rounded-md"
+                  >
+                    <sup class="text-[9px] mr-2">[</sup>
+                    <span>GSAP</span>
+                    <sup class="text-[9px] ml-2">]</sup>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
+        <div
+          data-line
+          class="w-full h-[1rem] opacity-[.5] relative mt-10 px-[1rem]"
+        >
+          <div class="lineBlock"></div>
+        </div>
         <section
-          data-sect="sect_3"
-          class="w-full min-h-screen md:h-screen overflow-hidden relative px-[1.5rem] md:px-[2.5rem] sect_3 "
+          data-section
+          class="w-full h-screen overflow-hidden relative px-[1.5rem] md:px-[2.5rem] mb-[5rem]"
         >
           <div class="relative w-full h-full overflow-hidden">
-            <div class="w-full h-full  relative md:absolute mb-[4rem]">
-              <div class="w-full h-fit border-t-[.4px] mb-2">
+            <div class="w-full h-full absolute top-0 z-[2] mb-[4rem]">
+              <div class="w-full h-auto mb-2">
                 <h1
                   class="uppercase text-start text-sm w-[25rem] flex flex-col flex-1 mt-[2rem] md:ml-10"
                 >
@@ -191,13 +232,17 @@
                   >
                 </h1>
               </div>
-              <div class="w-full h-full relative">
+              <div class="w-full h-full relative overflow-hidden">
                 <canvas class="models2-canvas"></canvas>
               </div>
-              
             </div>
-            <div class="w-full place-items-center md:overflow-hidden relative">
-              <div  class="w-full md:mt-[100vh] md:img_cnt flex flex-col justify-center items-center md:gap-[6rem]">
+            <div
+              class="w-full place-items-center overflow-hidden relative z-[5]"
+            >
+              <div
+                data-img
+                class="w-full mt-[1080px] mb-[80vh] overflow-hidden flex flex-col justify-center items-center md:gap-[6rem]"
+              >
                 <div
                   class="w-full h-[25rem] flex flex-col justify-center items-start mb-[4rem] md:mb-2 scroll-items"
                 >
@@ -210,14 +255,14 @@
                         data-webgl-media
                       />
                     </a>
-                    <div class="flex flex-1 mt-3 gap-5 justify-start ">
+                    <div class="flex flex-1 mt-3 gap-5 justify-start">
                       <p>1.</p>
                       <h1 data-text>Movie Application</h1>
                     </div>
                   </div>
                 </div>
                 <div
-                  class="w-full h-[30rem] flex flex-col justify-center items-end mb-[4rem] md:mb-2 scroll-items"
+                  class="w-full h-[30rem] flex flex-col justify-center items-end mb-[2rem] md:mb-2 scroll-items"
                 >
                   <div class="c_img">
                     <a href="/">
@@ -235,7 +280,7 @@
                   </div>
                 </div>
                 <div
-                  class="w-full h-full md:h-[30rem] flex-col flex items-center justify-center md:items-start mb-[4rem] md:mb-2 scroll-items"
+                  class="w-full h-full md:h-[30rem] flex-col flex items-center justify-center md:items-start mb-[2rem] md:mb-2 scroll-items"
                 >
                   <div class="c_img">
                     <a href="/">
@@ -274,61 +319,67 @@
             </div>
           </div>
         </section>
+        <section class="w-full h-[20rem]"></section>
       </main>
-
-      <footer class="w-full h-full footer relative">
-        <div class="w-full h-full absolute z-5 pb-[3rem] md:pl-[3rem] md:pr-[3rem] pt-[3rem] flex justify-center items-center pointer-events-none">
-          <div class="w-full h-full flex flex-col">
-            <div class="w-full h-full ">
-              <button
-                class="btn text-zinc-800 rounded-md duration-500 ease-in-out flex flex-col overflow-hidden items-start"
-              >
-                <span class="text">Let's connect</span>
-              </button>
-              <div class="links flex items-center justify-center space-x-4 text_size mb-2"
-              >
-                <span class="relative">
-                  <a
-                    href="http://"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="link-item blur-effect hover:active"
-                    >li</a
-                  >
-                </span>
-                <span class="relative">
-                  <a
-                    href="http://"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="link-item blur-effect hover:active"
-                    >Gi</a
-                  >
-                </span>
-                <span class="relative">
-                  <a
-                    href="http://"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="link-item blur-effect hover:active"
-                    >x</a
-                  >
-                </span>
-              </div>
-              <div class="addrs-conct text_size cursor-pointer">
-                <div
-                  class="flex items-center justify-center w-full sm:w-fit flex-col"
+      <!-- footer -->
+      <footer
+        class="w-full h-full bg-bg2 footer relative flex justify-center items-center"
+      >
+        <div
+          class="w-full h-full absolute z-5 pb-[3rem] md:pl-[3rem] md:pr-[3rem] pt-[3rem] flex flex-col justify-center items-center"
+        >
+          <div class="w-full h-full flex justify-center items-center">
+            <button
+              class="btn text-zinc-800 rounded-md duration-500 ease-in-out flex flex-col overflow-hidden items-start"
+            >
+              <span class="text">Let's connect</span>
+            </button>
+          </div>
+          <div class="flex justify-between items-center w-full">
+            <div
+              class="links flex items-center justify-center space-x-4 text_size mb-2"
+            >
+              <span class="relative">
+                <a
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="link-item blur-effect hover:active"
+                  >li</a
                 >
-                  <span class="lowercase">gouravsingh4495@gamil.com</span>
-                  <span data-text>+91 954-156-0130</span>
-                </div>
+              </span>
+              <span class="relative">
+                <a
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="link-item blur-effect hover:active"
+                  >Gi</a
+                >
+              </span>
+              <span class="relative">
+                <a
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="link-item blur-effect hover:active"
+                  >x</a
+                >
+              </span>
+            </div>
+            <div class="addrs-conct text_size cursor-pointer">
+              <div
+                class="flex items-center justify-center w-full sm:w-fit flex-col"
+              >
+                <span class="lowercase">gouravsingh4495@gamil.com</span>
+                <span data-text>+91 954-156-0130</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="w-full h-full bg-bg2 animate-bg "></div>
-      </footer> 
-   </div>
+        <div class="w-full h-full bg-bg1 animate-bg"></div>
+      </footer>
+    </div>
 
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script

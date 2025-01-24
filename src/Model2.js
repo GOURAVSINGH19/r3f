@@ -63,6 +63,10 @@ cone2.position.set(0, -1, 0);
 cone2.rotation.x = -Math.PI;
 group.add(cone2);
 group.scale.set(0.8, 0.8);
+
+if (window.innerWidth < 768) {
+  group.scale.set(0.5, 0.5);
+}
 scene.add(group);
 
 // Position camera
@@ -104,7 +108,7 @@ window.addEventListener("resize", () => {
 // Controls
 const controls = new OrbitControls(camera, canvas);
 controls.enableZoom = false;
-controls.enableDamping = false;
+controls.enableDamping = true;
 controls.dampingFactor = 0.25;
 controls.enablePan = false;
 

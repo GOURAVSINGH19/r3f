@@ -7,6 +7,7 @@
   --fontweight: 1;
   --footer-color: "697565";
   --line-color: "#eceae5";
+  --page-padding: 1.5rem 2rem;
 }
 
 * {
@@ -163,27 +164,14 @@ canvas {
 }
 
 .grid-container {
-  display: grid;
-  grid-template-areas:
-    "header content"
-    "menu content";
-  grid-template-columns: 0fr 2fr;
-  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.grid-container .text {
-  border: 1px solid #797671;
-  grid-area: header;
-}
-
-.grid-container .photo {
-  border: 1px solid #797671;
-  grid-area: content;
-}
-
-.grid-container .bottom {
-  border: 5px solid #797671;
-  grid-area: menu;
+[data-bg]:hover {
+  filter: drop-shadow(0 0 0.15rem rgba(156, 143, 145, 0.873));
 }
 
 #canvas {
@@ -212,14 +200,13 @@ canvas {
 }
 
 .lineBlock {
-  width: 100%;
+  width: 0%;
   height: 1px;
-  background-color: var(--line-color);
-  transform-origin: left;
+  background-color: #eceae5;
 }
 
 .arrow:hover {
-  animation: bounce 1s infinite; /* Apply bounce animation */
+  animation: bounce 1s infinite;
 }
 
 .btn {
@@ -249,16 +236,12 @@ canvas {
   display: block;
 }
 
+
+
 /* .animate-bg {
   transition: all 3s ease-in-out;
 } */
 
-@media (max-width: 900px) {
-  .grid-container {
-    display: flex;
-    flex-direction: column;
-  }
-}
 
 @media (max-width: 768px) {
   .models2-canvas {

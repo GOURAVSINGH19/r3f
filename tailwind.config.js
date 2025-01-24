@@ -8,7 +8,6 @@ export default {
         bg2: "#697565",
         bg3: "#D9D9D9",
         text: "white",
-        // text: "#ECDFCC",
       },
     },
   },
