@@ -63,71 +63,71 @@ addEventListener("mouseover", (event) => {
 });
 
 // preloader and home animation
-// const preloader = document.querySelector(".preloader");
-// const wordElement = document.getElementsByClassName("word");
-// const startLoader = () => {
-//   let index = 0;
+const preloader = document.querySelector(".preloader");
+const wordElement = document.getElementsByClassName("loader-word");
+const startLoader = () => {
+  let index = 0;
 
-//   function updateText() {
-//     index += Math.floor(Math.random() * 10) + 1;
+  function updateText() {
+    index += Math.floor(Math.random() * 10) + 1;
 
-//     if (index >= 100) {
-//       index = 100;
-//       return;
-//     }
+    if (index >= 100) {
+      index = 100;
+      return;
+    }
 
-//     wordElement[0].innerText = index + " %";
-//     let delay = Math.floor(Math.random() * 300) + 50;
-//     setTimeout(updateText, delay);
-//   }
-//   updateText();
-// };
-// startLoader();
+    wordElement[0].innerText = index + " %";
+    let delay = Math.floor(Math.random() * 300) + 50;
+    setTimeout(updateText, delay);
+  }
+  updateText();
+};
+startLoader();
 
-// let direction = -1;
-// let xPercent = 0;
+let direction = -1;
+let xPercent = 0;
 
-// tl.to(preloader, {
-//   y: "-100vh",
-//   duration: 1,
-//   ease: "power2.in",
-//   delay: 4,
-//   onComplete: () => {
-//     gsap.to(".middle_text", {
-//       duration: 1,
-//       opacity: 0.6,
-//       delay: 5,
-//       ease: "power4.out",
-//     });
+tl.to(preloader, {
+  y: "-100vh",
+  duration: 1,
+  ease: "power2.in",
+  delay: 4,
+  onComplete: () => {
+    gsap.to(".middle_text", {
+      duration: 1,
+      opacity: 0.6,
+      delay: 5,
+      ease: "power4.out",
+    });
 
-//     gsap.set(".middle_text", { x: 0 });
+    gsap.set(".middle_text", { x: 0 });
 
-//     gsap.to(".middle_text", {
-//       scrollTrigger: {
-//         trigger: ".home_section",
-//         scrub: 0.25,
-//         start: 0,
-//         end: window.innerHeight,
-//         onUpdate: (e) => (direction = e.direction * -1),
-//       },
-//       x: "-500px",
-//     });
+    gsap.to(".middle_text", {
+      scrollTrigger: {
+        trigger: ".home_section",
+        scrub: 0.25,
+        start: 0,
+        end: window.innerHeight,
+        onUpdate: (e) => (direction = e.direction * -1),
+      },
+      x: "-500px",
+    });
 
-//     gsap.to(".models-canvas", {
-//       opacity: 1,
-//       duration: 1.5,
-//       ease: "linear",
-//     });
-//     requestAnimationFrame(animate);
-//   },
-// }).to(
-//   wordElement,
-//   {
-//     opacity: 0,
-//     delay: 3.5,
-//   },
-//   0.25
-// );
+    gsap.to(".models-canvas", {
+      opacity: 1,
+      duration: 1.5,
+      ease: "linear",
+    });
+    requestAnimationFrame(animate);
+  },
+}).to(
+  wordElement,
+  {
+    opacity: 0,
+    delay: 3.5,
+  },
+  0.25
+);
 
 const animate = () => {
   if (xPercent < -100) {
@@ -155,7 +155,6 @@ const updateScrollTriggerPin = () => {
       end: "50% top",
       pin: true,
       scrub: 1,
-      markers: true,
     },
   });
 
@@ -216,11 +215,11 @@ Titles.forEach((title) => {
     title,
     {
       transformOrigin: "0% 100%",
-      rotate: 2,
+      rotate: 3,
     },
     {
       rotate: 0,
-      ease: "ease4.inOut",
+      ease: "linear",
       scrollTrigger: {
         trigger: section2,
         start: "top bottom",
