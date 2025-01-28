@@ -1,3 +1,9 @@
+import { Howl, Howler } from "howler";
+import "splitting/dist/splitting.css";
+import "splitting/dist/splitting-cells.css";
+import Splitting from "splitting";
+
+Splitting();
 gsap.registerPlugin(ScrollTrigger);
 
 // Scroll setup with Lenis
@@ -134,24 +140,8 @@ const animate = () => {
   xPercent += 0.1 * direction;
 };
 
-// abt section
-
-const abtsection = document.querySelector(".sect_2");
-const divsec = document.querySelector(".sect_cnt");
-
-const timelineabt = gsap.timeline({
-  scrollTrigger: {
-    trigger: divsec,
-    start: "top top",
-    end: "bottom top",
-    scrub: 1,
-    toggleActions: "play reverse play reverse",
-  },
-});
-
 //section-2
-const section2 = document.querySelector(".sect_cnt");
-
+const section2 = document.querySelector("[data-abt]");
 
 // section3 animation
 const sect3 = document.querySelector("[data-section]");
@@ -161,32 +151,32 @@ const updateScrollTriggerPin = () => {
   const timeline3 = gsap.timeline({
     scrollTrigger: {
       trigger: sect3,
-      start: "2% top",
-      end: "bottom top",
+      start: "top top",
+      end: "50% top",
       pin: true,
       scrub: 1,
+      markers: true,
     },
   });
 
   timeline3.to(imgCnt, {
-    marginTop: "-350vh",
-    duration: 0.8,
-    ease: "linear",
+    marginTop: 0,
+    duration: 8,
+    ease: "slow(.1,.5)",
   });
 };
 updateScrollTriggerPin();
 
 gsap.to(".lineBlock", {
   width: "100%",
-  ease: "slow(.1,.3)",
+  ease: "slow(.1,.4)",
   transformOrigin: "50% 50%",
   duration: 5,
   scrollTrigger: {
     trigger: line,
     start: "top bottom",
-    end: "1% center",
+    end: "1% top",
     scrub: 1,
-    once: true,
   },
 });
 
@@ -217,6 +207,48 @@ footertimeline
   });
 
 // html text-animation
+const Titles = [
+  ...document.querySelectorAll(".content__title[data-splitting]"),
+];
+
+Titles.forEach((title) => {
+  gsap.fromTo(
+    title,
+    {
+      transformOrigin: "0% 100%",
+      rotate: 2,
+    },
+    {
+      rotate: 0,
+      ease: "ease4.inOut",
+      scrollTrigger: {
+        trigger: section2,
+        start: "top bottom",
+        end: "top top",
+        scrub: true,
+      },
+    }
+  );
+
+  gsap.fromTo(
+    title.querySelectorAll(".word"),
+    {
+      "will-change": "opacity",
+      opacity: 0.1,
+    },
+    {
+      ease: "none",
+      opacity: 1,
+      stagger: 0.05,
+      scrollTrigger: {
+        trigger: section2,
+        start: "top bottom-=44%",
+        end: "40% top+=30%",
+        scrub: true,
+      },
+    }
+  );
+});
 const text = [...document.querySelectorAll(".text")];
 text.forEach((item) => {
   // text[1].classList.add("hover");
@@ -248,6 +280,25 @@ links.forEach((link) => {
   link.addEventListener("mouseout", () => {
     links.forEach((l) => l.classList.remove("blur-effect"));
   });
+});
+
+// music
+const logo = document.querySelector("[data-logo]");
+
+var sound = new Howl({
+  src: ["sound.wav"],
+});
+
+// Clear listener after first call.
+logo.addEventListener("mouseenter", () => {
+  sound.play();
+});
+
+Howler.volume(0.2);
+
+// Fires when the sound finishes playing.
+sound.on("end", function () {
+  console.log("Finished!");
 });
 
 const refreshScrollTrigger = () => {
