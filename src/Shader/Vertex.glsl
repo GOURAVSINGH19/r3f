@@ -14,7 +14,7 @@ void main()
     vec2 aspectCorrectedMouse = vec2(uMouse.x * aspectRatio.x / aspectRatio.y , uMouse.y);
     vec2 aspectUV = vec2(uv.x * aspectRatio.x/aspectRatio.y , uv.y);
 
-    float radius = 0.5;
+    float radius = 0.2;
     float frequency = 10.0;
     float amplitude = 20.0;
 

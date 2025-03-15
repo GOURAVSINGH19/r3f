@@ -1,10 +1,10 @@
 import * as THREE from "three";
-import gsap from "gsap";
 import vertexShader from "./Shader/vertex.glsl";
 import fragmentShader from "./Shader/fragment.glsl";
 import Lenis from "lenis";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-
+import SmoothScroll from "./Smoothscroll";
+gsap.registerPlugin(ScrollTrigger);
 let scene, camera, renderer;
 
 const sizes = {
@@ -16,7 +16,12 @@ const isDesktop = !/Mobi|Android/i.test(navigator.userAgent);
 const isWideScreen = window.innerWidth >= 768;
 
 if (isDesktop && isWideScreen) {
-  camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 100, 1000);
+  camera = new THREE.PerspectiveCamera(
+    50,
+    sizes.width / sizes.height,
+    100,
+    1000
+  );
   camera.position.z = 500;
   camera.fov = (180 * (2 * Math.atan(window.innerHeight / 2 / 500))) / Math.PI;
   camera.updateProjectionMatrix();
@@ -25,11 +30,11 @@ if (isDesktop && isWideScreen) {
 
   let webglImages = [];
 
+
   function setimageArray() {
     const images = [...document.querySelectorAll("[data-webgl-media]")];
     const imageGeo = new THREE.PlaneGeometry(1, 1, 30, 30);
     webglImages = images.map((img, i) => {
-      // img.style.opacity = 0
       const { width, height, top, left } = img.getBoundingClientRect();
 
       const imageMaterial = new THREE.ShaderMaterial({
@@ -77,7 +82,6 @@ if (isDesktop && isWideScreen) {
           ease: "circ",
         });
       });
-
       return {
         mesh,
         material: imageMaterial,
@@ -97,22 +101,27 @@ if (isDesktop && isWideScreen) {
   controls.enableZoom = false;
   controls.enableDamping = false;
 
-  const lenis = new Lenis();
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-
-  requestAnimationFrame(raf);
+  const lenis = new Lenis({ lerp: 0.5 });
+  lenis.on("scroll", ScrollTrigger.update);
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000); 
+  });
+  gsap.ticker.lagSmoothing(0);
 
   const clock = new THREE.Clock();
 
   function updatePlanesPosition() {
-    webglImages.forEach((object, index) => {
+    // Cache layout properties
+    const layoutProperties = webglImages.map((object) => {
       const { width, height, top, left } = object.img.getBoundingClientRect();
+      return { width, height, top, left };
+    });
+
+    // Update mesh positions and scales
+    webglImages.forEach((object, index) => {
+      const { width, height, top, left } = layoutProperties[index];
 
       object.mesh.scale.set(width, height, 1);
-
       object.mesh.position.x = left - sizes.width / 2 + width / 2;
       object.mesh.position.y = -top + sizes.height / 2 - height / 2;
     });
@@ -137,9 +146,9 @@ if (isDesktop && isWideScreen) {
       object.mesh.position.y = -top + sizes.height / 2 - height / 2;
     });
 
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    camera.updateProjectionMatrix();
     updatePlanesPosition();
+    camera.updateProjectionMatrix();
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   });
 
   function animate() {

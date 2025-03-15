@@ -2,23 +2,51 @@ import { Howl, Howler } from "howler";
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
-
 Splitting();
 gsap.registerPlugin(ScrollTrigger);
 
-// Scroll setup with Lenis
-const lenis = new Lenis();
-lenis.on("scroll", ScrollTrigger.update());
+const initSmoothScrolling = () => {
+  // Initialize Lenis for smooth scroll effects. Lerp value controls the smoothness.
+  const lenis = new Lenis({ lerp: 0.09 });
 
-gsap.ticker.add((time) => {
-  lenis.raf(time * 1000);
-});
-gsap.ticker.lagSmoothing(0);
+  // Sync ScrollTrigger with Lenis' scroll updates.
+  lenis.on("scroll", ScrollTrigger.update);
 
-const firstText = document.querySelector(".firsttext");
-const secondText = document.querySelector(".secondtext");
+  // Ensure GSAP animations are in sync with Lenis' scroll frame updates.
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000); // Convert GSAP's time to milliseconds for Lenis.
+  });
+
+  // Turn off GSAP's default lag smoothing to avoid conflicts with Lenis.
+  gsap.ticker.lagSmoothing(0);
+};
+initSmoothScrolling();
+
+const initParallax = () => {
+  const parallaxElements = document.querySelectorAll('[data-speed]');
+  
+  parallaxElements.forEach(element => {
+    const speed = element.dataset.speed;
+    
+    gsap.to(element, {
+      y: () => (-element.offsetHeight * speed /4),
+      ease: "none",
+      scrollTrigger: {
+        trigger: element,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      }
+    });
+  });
+};
+
+// Add this after your Lenis initialization
+initParallax();
+
+// page transition
+let isAnimating = false;
 const slider = document.querySelector(".slider");
-
 const tl = gsap.timeline();
 tl.to(slider, {
   scrollTrigger: {
@@ -29,13 +57,15 @@ tl.to(slider, {
   },
 });
 
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-const texts = [...document.querySelectorAll("[data-text]")];
-
 // Text animation function
+
 const animateText = (textElement) => {
+  if (isAnimating) return; // Prevent animation if already running
+
   let originalText = textElement.innerText;
   let iteration = 0;
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  isAnimating = true;
 
   const newIntervalId = setInterval(() => {
     textElement.innerText = originalText
@@ -43,12 +73,13 @@ const animateText = (textElement) => {
       .map((letter, index) => {
         return index < iteration
           ? letter
-          : letters[Math.floor(Math.random() * 26)];
+          : letters[Math.floor(Math.random() * letters.length)];
       })
       .join("");
 
     if (iteration >= originalText.length) {
       clearInterval(newIntervalId);
+      isAnimating = false;
     }
 
     iteration++;
@@ -56,79 +87,15 @@ const animateText = (textElement) => {
 };
 
 // Mouseover event listener
-addEventListener("mouseover", (event) => {
-  if (event.target.matches("[data-text]")) {
-    animateText(event.target);
-  }
+const textElement = document.querySelectorAll("[data-text]");
+textElement.forEach((letter, index) => {
+  letter.addEventListener("mouseover", () => {
+    animateText(letter);
+  });
 });
-
-// preloader and home animation
-const preloader = document.querySelector(".preloader");
-const wordElement = document.getElementsByClassName("loader-word");
-const startLoader = () => {
-  let index = 0;
-
-  function updateText() {
-    index += Math.floor(Math.random() * 10) + 1;
-
-    if (index >= 100) {
-      index = 100;
-      return;
-    }
-
-    wordElement[0].innerText = index + " %";
-    let delay = Math.floor(Math.random() * 300) + 50;
-    setTimeout(updateText, delay);
-  }
-  updateText();
-};
-startLoader();
 
 let direction = -1;
 let xPercent = 0;
-
-tl.to(preloader, {
-  y: "-100vh",
-  duration: 1,
-  ease: "power2.in",
-  delay: 4,
-  onComplete: () => {
-    gsap.to(".middle_text", {
-      duration: 1,
-      opacity: 0.6,
-      delay: 5,
-      ease: "power4.out",
-    });
-
-    gsap.set(".middle_text", { x: 0 });
-
-    gsap.to(".middle_text", {
-      scrollTrigger: {
-        trigger: ".home_section",
-        scrub: 0.25,
-        start: 0,
-        end: window.innerHeight,
-        onUpdate: (e) => (direction = e.direction * -1),
-      },
-      x: "-500px",
-    });
-
-    gsap.to(".models-canvas", {
-      opacity: 1,
-      duration: 1.5,
-      ease: "linear",
-    });
-    requestAnimationFrame(animate);
-  },
-}).to(
-  wordElement,
-  {
-    opacity: 0,
-    delay: 3.5,
-  },
-  0.25
-);
-
 const animate = () => {
   if (xPercent < -100) {
     xPercent = 0;
@@ -140,31 +107,88 @@ const animate = () => {
   xPercent += 0.1 * direction;
 };
 
-//section-2
-const section2 = document.querySelector("[data-abt]");
+//preloader and home animation
+const preloader = document.querySelector(".preloader");
+const preline = document.querySelector(".lodingline");
+const loadingtext = document.querySelector(".lodingtext");
+const enterButton = document.querySelector(".enter-button");
 
-// section3 animation
-const sect3 = document.querySelector("[data-section]");
-const imgCnt = document.querySelector("[data-img]");
-const line = document.querySelector("[data-line]");
-const updateScrollTriggerPin = () => {
-  const timeline3 = gsap.timeline({
-    scrollTrigger: {
-      trigger: sect3,
-      start: "top top",
-      end: "50% top",
-      pin: true,
-      scrub: 1,
+const startLoader = () => {
+  let randomWidth = 50;
+  const increaseWidth = () => {
+    if (randomWidth < 100) {
+      randomWidth += 1;
+      gsap.to(preline, {
+        width: `${randomWidth}%`,
+        ease: "slow(.1,.4)",
+        transformOrigin: "50% 50%",
+      });
+      requestAnimationFrame(increaseWidth);
+    } else {
+      if (randomWidth === 100) {
+        gsap.to(loadingtext, {
+          opacity: 0,
+          duration: 2,
+          ease: "power2.inOut",
+        });
+        gsap.to(preline, {
+          opacity: 0,
+          duration: 2,
+          ease: "power2.inOut",
+        });
+        gsap.to(enterButton, {
+          opacity: 1,
+          display: "block",
+          duration: 4,
+          ease: "bounce.inOut",
+        });
+      }
+    }
+  };
+  increaseWidth(); // Start increasing the width
+};
+startLoader();
+
+enterButton.addEventListener("click", () => {
+  tl.to(preloader, {
+    opacity: 0,
+    transformOrigin: "50% 50%",
+    duration: 1,
+    display: "none",
+    ease: "power2.in",
+    delay: 1,
+    onComplete: () => {
+      gsap.to("#main", {
+        duration: 1,
+        opacity: 1,
+        ease: "power2.in",
+      });
+      gsap.set(".middle_text", { x: 0 });
+      gsap.to(".middle_text", {
+        duration: 1,
+        opacity: 0.6,
+        delay: 1,
+        ease: "power4.out",
+      });
+
+      gsap.to(".middle_text", {
+        scrollTrigger: {
+          trigger: ".home_section",
+          scrub: 0.25,
+          start: 0,
+          end: window.innerHeight,
+          onUpdate: (e) => (direction = e.direction * -1),
+        },
+        x: "-500px",
+      });
+      requestAnimationFrame(animate);
     },
   });
+});
 
-  timeline3.to(imgCnt, {
-    marginTop: 0,
-    duration: 8,
-    ease: "slow(.1,.5)",
-  });
-};
-updateScrollTriggerPin();
+
+// section3 animation
+const line = document.querySelector("[data-line]");
 
 gsap.to(".lineBlock", {
   width: "100%",
@@ -176,81 +200,84 @@ gsap.to(".lineBlock", {
     start: "top bottom",
     end: "1% top",
     scrub: 1,
+    once: true,
   },
 });
+const fx19Titles = [
+  ...document.querySelectorAll(".content__title[data-splitting]"),
+];
 
-// line
+fx19Titles.forEach((title) => {
+  const chars = title.querySelectorAll(".word");
+
+  gsap.fromTo(
+    chars,
+    {
+      "will-change": "opacity, transform",
+      opacity: 0,
+    },
+    {
+      duration: 2,
+      ease: "power4.inOut",
+      opacity: 1,
+      delay: 0.05,
+      stagger: 0.03,
+      scrollTrigger: {
+        trigger: ".grid-container",
+        start: "5% bottom",
+        end: "center top",
+        scrub: true,
+      },
+    }
+  );
+});
 
 // footer color
+const Titles = document.querySelectorAll(".title");
 const footertimeline = gsap.timeline({
   scrollTrigger: {
     trigger: ".footer",
-    start: "10% 80%",
+    start: "20% 80%",
     end: "80% 80%",
     scrub: true,
   },
 });
 
 footertimeline
-  .from(".animate-bg", {
-    borderRadius: "0em",
-    height: "105.493%",
-    width: "109.801%",
-    ease: "linear",
+  // .from(".animate-bg", {
+  //   borderRadius: "0em",
+  //   height: "105.493%",
+  //   width: "109.801%",
+  //   ease: "linear",
+  // })
+  // .to(".animate-bg", {
+  //   width: "95%",
+  //   height: "95%",
+  //   borderRadius: "1em",
+  //   ease: "linear",
+  // })
+  .to(Titles, {
+    translateX: 0,
+    duration: 2,
+    ease: "power2.inOut",
+    stagger: 0.05,
+    scrollTrigger: {
+      trigger: ".footer",
+      start: "10% 80%",
+      end: "80% 80%",
+      scrub: true,
+      once: true,
+    },
   })
-  .to(".animate-bg", {
-    width: "95%",
-    height: "95%",
-    borderRadius: "1em",
-    ease: "linear",
+  .to(".circle-animation", {
+    opacity: 1,
+    scale: 1.1,
+    duration: 1,
+    ease: "power2.inOut",
   });
 
-// html text-animation
-const Titles = [
-  ...document.querySelectorAll(".content__title[data-splitting]"),
-];
-
-Titles.forEach((title) => {
-  gsap.fromTo(
-    title,
-    {
-      transformOrigin: "0% 100%",
-      rotate: 3,
-    },
-    {
-      rotate: 0,
-      ease: "linear",
-      scrollTrigger: {
-        trigger: section2,
-        start: "top bottom",
-        end: "top top",
-        scrub: true,
-      },
-    }
-  );
-
-  gsap.fromTo(
-    title.querySelectorAll(".word"),
-    {
-      "will-change": "opacity",
-      opacity: 0.1,
-    },
-    {
-      ease: "none",
-      opacity: 1,
-      stagger: 0.05,
-      scrollTrigger: {
-        trigger: section2,
-        start: "top bottom-=44%",
-        end: "40% top+=30%",
-        scrub: true,
-      },
-    }
-  );
-});
 const text = [...document.querySelectorAll(".text")];
 text.forEach((item) => {
-  // text[1].classList.add("hover");
   item.addEventListener("click", () => {
     text.forEach((item) => {
       item.classList.remove("hover");
@@ -260,6 +287,9 @@ text.forEach((item) => {
       });
     });
     item.classList.add("hover");
+    setTimeout(() => {
+      item.classList.remove("hover");
+    }, 500);
   });
 });
 
@@ -267,7 +297,6 @@ const links = document.querySelectorAll(".link-item");
 
 links.forEach((link) => {
   link.classList.add("active");
-
   link.addEventListener("mouseover", () => {
     links.forEach((l) => {
       l.classList.add("blur-effect");
@@ -290,19 +319,20 @@ var sound = new Howl({
 
 // Clear listener after first call.
 logo.addEventListener("mouseenter", () => {
+  if (isAnimating) return;
+  isAnimating = true;
   sound.play();
 });
 
-Howler.volume(0.2);
+Howler.volume(0.5);
 
 // Fires when the sound finishes playing.
 sound.on("end", function () {
+  isAnimating = false;
   console.log("Finished!");
 });
 
-const refreshScrollTrigger = () => {
-  ScrollTrigger.clearScrollMemory();
-  ScrollTrigger.refresh();
-};
 
-window.addEventListener("resize", refreshScrollTrigger);
+window.addEventListener("resize", () => {
+  window.location.reload();
+});

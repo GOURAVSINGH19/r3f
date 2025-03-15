@@ -12,7 +12,7 @@ const sizes = {
 const scene = new THREE.Scene();
 // TEXTURES
 const texture = new THREE.TextureLoader();
-const loadtexture = texture.load("/3.jpeg");
+const loadtexture = texture.load("/texture2.png");
 
 // Camera
 const camera = new THREE.PerspectiveCamera(
@@ -42,31 +42,16 @@ const ring2Material = new THREE.MeshMatcapMaterial({
   matcap: loadtexture,
 });
 const ring2 = new THREE.Mesh(ring2Geometry, ring2Material);
-ring2.rotation.x = Math.PI / 2;
 group.add(ring2);
-
-// Create cones
-const cone1Geometry = new THREE.ConeGeometry(1, 1.41, 4);
-const cone1Material = new THREE.MeshMatcapMaterial({
+const ring3Geometry = new THREE.TorusGeometry(1.4, 0.1);
+const ring3Material = new THREE.MeshMatcapMaterial({
   matcap: loadtexture,
 });
-const cone1 = new THREE.Mesh(cone1Geometry, cone1Material);
-cone1.position.set(0, 1, 0);
-group.add(cone1);
+const ring3 = new THREE.Mesh(ring3Geometry, ring3Material);
+group.add(ring3);
+group.rotateX = -Math.PI / 2;
+group.scale.set(0.6, 0.6);
 
-const cone2Geometry = new THREE.ConeGeometry(1, 1.41, 4);
-const cone2Material = new THREE.MeshMatcapMaterial({
-  matcap: loadtexture,
-});
-const cone2 = new THREE.Mesh(cone2Geometry, cone2Material);
-cone2.position.set(0, -1, 0);
-cone2.rotation.x = -Math.PI;
-group.add(cone2);
-group.scale.set(0.8, 0.8);
-
-if (window.innerWidth < 768) {
-  group.scale.set(0.5, 0.5);
-}
 scene.add(group);
 
 // Position camera
@@ -76,22 +61,22 @@ camera.position.z = 5;
 gsap
   .timeline({ repeat: -1 })
   .to(ring1.rotation, {
-    z: `+=${Math.PI * 2}`,
-    x: `+=${Math.PI * 2}`,
-    duration: 4,
-    ease: "none",
-  })
-  .to(ring2.rotation, {
     z: `-=${Math.PI * 2}`,
     x: `-=${Math.PI * 2}`,
     duration: 4,
-    ease: "none",
-  })
-  .to(group.rotation, {
-    y: Math.PI * 2,
+    ease: "power4.inOut",
+  }).to(ring3.rotation, {
+    z: `-=${Math.PI * 2}`,
+    x: `-=${Math.PI * 2}`,
     duration: 4,
-    ease: "none",
-  });
+    ease:"circ.inOut",
+  })
+  .to(ring2.rotation, {
+    z: `+=${Math.PI * 2}`,
+    x: `+=${Math.PI * 2}`,
+    duration: 4,
+    ease:"0.35s cubic-bezier(0.62, 0.05, 0.01, 0.99)",
+  })
 
 // resize
 window.addEventListener("resize", () => {
@@ -113,7 +98,7 @@ controls.dampingFactor = 0.25;
 controls.enablePan = false;
 
 // Lighting
-const pointLight = new THREE.PointLight("purple", 3, 100, 5);
+const pointLight = new THREE.PointLight("white", 3, 100, 5);
 pointLight.position.set(0, -0.2, 0);
 pointLight.castShadow = true;
 scene.add(pointLight);
