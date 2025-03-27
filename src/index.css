@@ -33,7 +33,7 @@
   padding: 0;
   box-sizing: border-box;
   text-rendering: optimizeLegibility;
-  font-family: Kola-Regular;
+  /* font-family: Kola-Regular; */
 }
 
 html {
@@ -52,7 +52,7 @@ body:before {
   pointer-events: none;
   opacity: 20%;
   scroll-behavior: smooth;
-  color: #f3edd8;
+  /* color: #f3edd8; */
 }
 
 body::-webkit-scrollbar {
@@ -453,14 +453,14 @@ canvas {
   opacity: 0;
 }
 
-.c_img_content{
+.c_img_content {
   backdrop-filter: blur(27px);
 }
-.c_inside_content{
+.c_inside_content {
   width: 100%;
-  background-image: linear-gradient(#f3edd81a,#f3edd81a);
+  background-image: linear-gradient(#f3edd81a, #f3edd81a);
   backdrop-filter: 40px;
-  border: .5px solid #f3edd827;
+  border: 0.5px solid #f3edd827;
   padding: 1rem;
   border-radius: 10px;
 }
@@ -472,7 +472,11 @@ canvas {
 .extra_work {
   width: 100%;
   height: 20%;
-  background-color: aquamarine;
+}
+
+.cta_pixels_path{
+  background-color: var(--color-dark);
+  overflow: hidden;
 }
 
 .lineBlock {
@@ -517,197 +521,70 @@ canvas {
   transition: cubic-bezier(0.19, 1, 0.22, 1) 1s ease-in-out;
 }
 
-svg {
-  max-width: none;
-  height: auto;
-  box-sizing: border-box;
-  vertical-align: middle;
+.footer {
+  color: var(--color-dark);
 }
-
-svg:not(:root) {
-  overflow: hidden;
-}
-
-.footer-logo {
-  opacity: 0.08;
+.footer-container {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.footer-bg {
-  clip-path: polygon(
-    0.045% 5.718%,
-    0.045% 5.718%,
-    0.048% 5.571%,
-    0.055% 5.425%,
-    0.068% 5.282%,
-    0.085% 5.141%,
-    0.107% 5.003%,
-    0.134% 4.868%,
-    0.166% 4.738%,
-    0.202% 4.612%,
-    0.242% 4.492%,
-    0.287% 4.377%,
-    1.782% 0.805%,
-    1.782% 0.805%,
-    1.841% 0.675%,
-    1.905% 0.557%,
-    1.974% 0.452%,
-    2.046% 0.359%,
-    2.122% 0.279%,
-    2.2% 0.213%,
-    2.282% 0.161%,
-    2.365% 0.123%,
-    2.45% 0.101%,
-    2.537% 0.093%,
-    36.19% 0.093%,
-    36.19% 0.093%,
-    36.261% 0.098%,
-    36.331% 0.114%,
-    36.4% 0.139%,
-    36.468% 0.175%,
-    36.535% 0.22%,
-    36.6% 0.275%,
-    36.663% 0.339%,
-    36.724% 0.413%,
-    36.782% 0.495%,
-    36.838% 0.586%,
-    39.042% 4.475%,
-    39.042% 4.475%,
-    39.103% 4.574%,
-    39.166% 4.664%,
-    39.233% 4.744%,
-    39.301% 4.814%,
-    39.372% 4.874%,
-    39.445% 4.924%,
-    39.519% 4.963%,
-    39.595% 4.991%,
-    39.671% 5.008%,
-    39.749% 5.013%,
-    50% 5.013%,
-    59.981% 5.013%,
-    59.981% 5.013%,
-    60.065% 5.007%,
-    60.148% 4.987%,
-    60.23% 4.954%,
-    60.31% 4.908%,
-    60.388% 4.85%,
-    60.463% 4.781%,
-    60.536% 4.699%,
-    60.606% 4.606%,
-    60.673% 4.501%,
-    60.735% 4.386%,
-    62.607% 0.668%,
-    62.607% 0.668%,
-    62.664% 0.562%,
-    62.725% 0.467%,
-    62.789% 0.381%,
-    62.856% 0.306%,
-    62.925% 0.242%,
-    62.997% 0.189%,
-    63.07% 0.147%,
-    63.145% 0.117%,
-    63.221% 0.099%,
-    63.298% 0.093%,
-    97.262% 0.093%,
-    97.262% 0.093%,
-    97.343% 0.1%,
-    97.423% 0.12%,
-    97.501% 0.153%,
-    97.578% 0.199%,
-    97.653% 0.257%,
-    97.725% 0.328%,
-    97.794% 0.41%,
-    97.86% 0.503%,
-    97.922% 0.608%,
-    97.981% 0.724%,
-    99.677% 4.362%,
-    99.677% 4.362%,
-    99.728% 4.48%,
-    99.774% 4.606%,
-    99.816% 4.737%,
-    99.852% 4.875%,
-    99.883% 5.018%,
-    99.909% 5.165%,
-    99.929% 5.315%,
-    99.943% 5.469%,
-    99.952% 5.626%,
-    99.955% 5.784%,
-    99.955% 93.492%,
-    99.955% 93.492%,
-    99.95% 93.616%,
-    99.936% 93.734%,
-    99.914% 93.843%,
-    99.883% 93.944%,
-    99.846% 94.033%,
-    99.803% 94.109%,
-    99.754% 94.172%,
-    99.701% 94.218%,
-    99.644% 94.247%,
-    99.583% 94.257%,
-    76.921% 94.257%,
-    76.921% 94.257%,
-    76.834% 94.264%,
-    76.749% 94.285%,
-    76.665% 94.32%,
-    76.582% 94.369%,
-    76.502% 94.43%,
-    76.425% 94.504%,
-    76.35% 94.591%,
-    76.279% 94.69%,
-    76.211% 94.8%,
-    76.148% 94.922%,
-    74.048% 99.297%,
-    74.048% 99.297%,
-    73.99% 99.409%,
-    73.929% 99.511%,
-    73.863% 99.601%,
-    73.795% 99.681%,
-    73.724% 99.749%,
-    73.65% 99.805%,
-    73.575% 99.849%,
-    73.498% 99.881%,
-    73.419% 99.901%,
-    73.34% 99.907%,
-    26.522% 99.907%,
-    26.522% 99.907%,
-    26.436% 99.899%,
-    26.35% 99.876%,
-    26.266% 99.838%,
-    26.185% 99.786%,
-    26.106% 99.719%,
-    26.03% 99.639%,
-    25.957% 99.545%,
-    25.889% 99.439%,
-    25.825% 99.32%,
-    25.765% 99.189%,
-    24.043% 95.041%,
-    24.043% 95.041%,
-    23.978% 94.898%,
-    23.908% 94.768%,
-    23.833% 94.652%,
-    23.754% 94.55%,
-    23.671% 94.462%,
-    23.585% 94.39%,
-    23.496% 94.332%,
-    23.405% 94.291%,
-    23.312% 94.266%,
-    23.217% 94.257%,
-    0.417% 94.257%,
-    0.417% 94.257%,
-    0.356% 94.247%,
-    0.299% 94.218%,
-    0.246% 94.172%,
-    0.197% 94.109%,
-    0.154% 94.033%,
-    0.117% 93.944%,
-    0.087% 93.843%,
-    0.064% 93.734%,
-    0.05% 93.616%,
-    0.045% 93.492%,
-    0.045% 5.718%
-  );
-  background-color: rgba(72, 141, 160, 0.098);
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 40px;
+  gap: 5em;
+}
+
+.footer-let-text{
+  font-size: clamp(1rem,7vw,15rem);
+  font-weight: 800;
+  letter-spacing: -.3vw;
+}
+
+.copie{
+  font-size: clamp(1rem,1vw,4rem);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.contact-container {
+  width: fit-content;
+  display: flex;
+  justify-content: end;
+  align-items: start;
+  margin-right: 50px;
+}
+
+.footer_align_bottom {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.footer_text {
+  font-size: clamp(0.8rem, 16.5vw, 16.5rem);
+  font-family: serif;
+  height: fit-content;
+  display: inline-block;
+  overflow: hidden;
+  color: #e4e4e4;
+}
+
+.footer-bg{
+  display: flex;
+  justify-content:  center;
+  align-items: center;
+}
+
+.char {
+  letter-spacing: -.3px;
 }
 
 @media (max-width: 768px) {
@@ -749,6 +626,15 @@ svg:not(:root) {
     grid-column: 1 / span 8;
     grid-row: 4;
   }
+
+  .c_img img {
+    width: 90vw;
+    height: 80%;
+    object-fit: cover;
+    object-position: center;
+    top: -20%;
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 530px) {
@@ -765,6 +651,3 @@ svg:not(:root) {
     flex-direction: column;
   }
 }
-
-/* backdrop */
-/* linear-gradient(#f3edd81a,#f3edd81a) */

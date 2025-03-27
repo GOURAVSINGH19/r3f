@@ -3,8 +3,8 @@ import vertexShader from "./Shader/vertex.glsl";
 import fragmentShader from "./Shader/fragment.glsl";
 import Lenis from "lenis";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import SmoothScroll from "./Smoothscroll";
-gsap.registerPlugin(ScrollTrigger);
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";gsap.registerPlugin(ScrollTrigger);
 let scene, camera, renderer;
 
 const sizes = {
