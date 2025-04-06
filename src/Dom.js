@@ -11,10 +11,11 @@ export const line = document.querySelector("[data-line]");
 export const fx19Titles = [
   ...document.querySelectorAll(".content__title[data-splitting]"),
 ];
-export const text = [...document.querySelectorAll(".text")];
-export const links = document.querySelectorAll(".link-item");
+// export const text = [...document.querySelectorAll("[stagger-]")];
 export const logo = document.querySelector("[data-logo]");
 export const clickbtnwrk = document.querySelector(".click-btn")
 export const footerText = [...document.querySelectorAll(".footer_text[data-splitting]")];
 export const Footerstart = document.querySelector(".footer-bg");
 export const FooterInnerBg = document.querySelector(".footer-inner-bg");
+export const originalText = document.getElementById("original-text");
+export const hoverText = document.getElementById("hover-text");

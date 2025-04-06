@@ -60,309 +60,306 @@
     <div class="separator"></div>
     <div class="separator"></div>
   </div>
-  <main id="main" class="w-screen  min-h-screen overflow-x-hidden relative overflow-hidden ">
-    <svg class="w-full h-full svg pointer-events-none absolute top-0 z-[9999] cursor-none overflow-hidden">
-      <filter id="grainy">
-        <feTurbulence type="turbulence" baseFrequency="0.7"></feTurbulence>
-        <feColorMatrix type="saturate" values="0"></feColorMatrix>
-      </filter>
-    </svg>
-    <section class="w-full h-screen relative overflow-hidden sect_1 p-[1rem] bg-bg1">
-      <div class="relative canva-container">
-        <div
-          class="absolute left-[1rem] top-[4rem] sm:right-[2rem] z-[9] sm:top-5 flex sm:items-end xl:items-end flex-col">
-          <span class="text-[.9rem] capitalize text-[#d9d9d9]">Available for freelance work</span>
-          <span
-            class="text-start text-[.8rem] text-zinc-400 lg:text-zinc-500 hover:text-zinc-300 transform duration-500 ease-in-out">New
-            Delhi , India</span>
-        </div>
-        <div class="w-full h-full flex justify-center pointer-events-none overflow-hidden">
-          <div>
-            <canvas id="model-canvas" class="models-canvas absolute top-0 left-0 items-center z-[9]"></canvas>
-          </div>
-        </div>
-      </div>
-      <div
-        class="relative bg-svg overflow-hidden w-full h-full flex justify-center items-center home_section pointer-events-none">
-        <div class="slider flex uppercase whitespace-nowrap w-full overflow-hidden">
-          <p class="text-[100px] sm:text-[8rem] lg:text-[10rem] first-text middle_text opacity-0">
-            Front-End Developer -
-          </p>
-          <p class="text-[100px] sm:text-[8rem] lg:text-[10rem] second-text middle_text opacity-0 ml-5">
-            Front-End Developer -
-          </p>
-        </div>
-      </div>
-      <div class="relative">
-        <div class="w-fit h-fit absolute bottom-3 right-10 flex items-center">
-          <svg class="w-8 h-8 arrow-svg" viewBox="0 0 72 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="arrow-svg" fill-rule="evenodd" clip-rule="evenodd"
-              d="M52.1634 0.734116C55.2566 1.10779 58.1505 2.85161 61.8914 6.60912C66.8696 11.6081 70.1663 17.7862 71.5572 24.7116C71.8479 26.1814 71.9309 27.1114 71.9807 30.0012C72.0513 33.2688 71.9392 34.6182 71.4576 36.2582C71.0756 37.5868 70.5898 38.4047 69.6847 39.2725C68.4765 40.4309 67.8993 40.6136 68.4349 39.6669C68.709 39.1729 69.0785 37.6325 69.3733 35.7973C69.6266 34.1532 69.6349 29.1334 69.3733 27.3606C68.8294 23.5615 67.8827 20.3272 66.1763 16.5447C64.4324 12.6336 62.045 9.52794 58.0841 6.00293C57.3201 5.31786 56.3112 4.51239 55.8586 4.19684C51.6568 1.40673 46.7865 1.46486 42.8588 4.37953C38.686 7.48518 35.4724 13.9954 33.5376 23.246C33.2968 24.4044 32.9231 26.4928 32.9231 26.6838C32.9231 26.7544 33.2469 27.0284 33.6497 27.29C35.4724 28.4691 37.6314 30.4164 38.8895 32.019C42.3066 36.3744 44.1999 41.6225 44.6026 47.8919C44.8434 51.5706 44.0587 54.2818 42.2235 56.117C41.0859 57.2546 40.2887 57.62 39.0182 57.5494C38.2833 57.5079 38.0715 57.458 37.4072 57.1176C36.4689 56.6443 35.2191 55.4942 34.4137 54.3773C32.5785 51.828 31.4907 48.3487 31.1087 43.8064C30.9592 42.0626 31.0381 32.92 31.2083 31.1679C31.2789 30.5326 31.3412 29.6981 31.3412 29.312L31.362 28.6061L30.6063 28.1619C23.5023 23.9186 19.1759 28.0415 18.6112 39.5714C18.5116 41.6267 18.6112 45.3385 18.7815 45.4797C18.823 45.5087 19.2548 45.8409 19.7281 46.2146C21.4927 47.5639 23.0455 49.5112 24.0337 51.6287C24.6482 52.92 24.9098 53.6756 25.2212 55.0541C25.6364 56.8892 25.4828 58.0974 24.6773 59.3472C23.9631 60.4474 22.5224 61.6058 21.8664 61.6058C21.3931 61.6058 20.8284 61.0495 20.1724 59.9534C18.6403 57.3542 17.6438 53.9372 17.0169 49.2081C16.9463 48.6642 16.938 48.6518 16.2405 48.1701C15.846 47.8961 15.0322 47.4352 14.426 47.1404C11.1792 45.5669 8.24791 45.3883 6.35461 46.6464C5.93941 46.9204 5.71936 47.182 5.34568 47.8172C4.03366 50.0427 3.03718 53.0196 2.56385 56.063C2.36041 57.4041 2.39362 61.9089 2.61367 63.1171C3.63091 68.5811 5.93941 74.0534 9.10321 78.5084C9.95022 79.7083 10.6561 80.5844 10.7059 80.5263C10.7349 80.4972 10.6768 80.0529 10.5855 79.5381C10.3447 78.2468 10.3239 75.8097 10.5564 75.3156C10.7682 74.8506 12.238 73.2977 12.6947 73.0486C13.2095 72.7746 13.3299 72.8784 13.4088 73.6216C13.4379 73.9745 13.5583 74.5807 13.6704 74.9627C13.9029 75.7598 13.9237 76.2207 13.7617 76.6774C13.6621 76.939 13.6912 77.1922 13.9237 78.2012C14.2475 79.6004 14.862 81.4355 15.3063 82.3116C15.4682 82.6438 15.8626 83.2998 16.1533 83.7523C16.5768 84.3959 16.7802 84.5993 17.0501 84.6907C17.5359 84.8526 17.9054 85.1764 17.9054 85.438C17.9054 86.0027 16.2239 87.9292 14.9409 88.8343C14.2641 89.3201 13.9444 89.428 13.824 89.2371C13.7534 89.1042 13.1472 88.8343 9.63051 87.3105C6.45425 85.9279 4.48207 85.0311 3.36104 84.4291C2.72579 84.0969 2.67596 84.0471 2.73409 83.8022C2.83373 83.3994 3.3984 82.6936 4.33674 81.7968C5.34567 80.821 5.89789 80.4972 6.30063 80.6384C6.56221 80.7297 6.50407 80.6093 5.67368 79.2558C2.75069 74.5184 0.915518 69.8018 0.188923 65.135C-0.0643478 63.4908 -0.0643397 59.6918 0.197235 58.0808C0.94459 53.385 2.78806 49.1915 5.25848 46.6007C6.3463 45.4631 7.23483 44.7946 8.43475 44.2341C9.84642 43.5781 10.5398 43.4286 12.1549 43.4286C13.6164 43.4286 14.5631 43.6113 15.9249 44.1137C16.7428 44.4251 16.7221 44.4251 16.6515 44.1926C16.5519 43.9019 16.7719 39.2642 16.9421 37.9729C17.5276 33.5387 18.9766 30.2711 21.4678 27.7841C23.2116 26.0485 24.8434 25.1725 26.7782 24.9234C28.1691 24.7531 29.8216 25.0936 31.171 25.8285C31.4824 25.9904 31.7564 26.1191 31.7647 26.1025C31.7855 26.0942 31.9349 25.3469 32.1093 24.4708C33.1764 18.9985 34.8621 14.3193 37.1498 10.4621C39.5704 6.40983 42.099 3.78164 45.1341 2.1956C47.4218 1.00814 49.9711 0.472539 52.1675 0.742416L52.1634 0.734116ZM32.4705 30.4247C32.0387 36.3329 31.9349 39.3431 32.0969 41.8965C32.4083 46.7626 33.2262 49.7188 35.0115 52.43C36.4315 54.5849 38.4867 55.9592 40.3012 55.9592C41.418 55.9592 41.7211 55.8388 41.9121 55.3239C42.456 53.8541 42.6263 52.5712 42.5557 50.3748C42.4934 48.3404 42.2318 46.6754 41.4886 43.7109C40.8243 41.0412 40.3178 39.6088 39.3628 37.6615C37.8307 34.5351 35.9167 32.1062 33.4462 30.1424C33.031 29.8102 32.6615 29.5486 32.62 29.5486C32.5702 29.5486 32.5079 29.9431 32.4705 30.4247ZM19.9108 52.6501C20.434 54.614 21.09 56.1087 21.9162 57.267C22.5224 58.1348 22.5515 57.9106 22.0283 56.3412C21.4636 54.6389 19.9316 51.5747 19.7406 51.7657C19.7115 51.7948 19.7904 52.1892 19.9108 52.6542V52.6501Z"
-              fill="currentColor" />
-          </svg>
-        </div>
-      </div>
-    </section>
-    <section data-abt class="w-full min-h-screen relative py-10 px-4 md:px-[1.5rem]">
-      <h1 class="text-[.7rem] uppercase relative flex gap-2 justify-start items-start">
-        <span data-brc class="relative">
-          <span class="absolute left-1">[</span>
-        </span>
-        <span data-abt class="ml-2 mr-2">about</span>
-        <span data-brc class="relative">
-          <span class="absolute right-1">]</span>
-        </span>
-      </h1>
-      <div class="max-w-7xl mx-auto  grid-container">
-        <div data-hidden class="content relative mt-10 md:mt-16 ">
-          <h2 class="content__title content__title--left max-w-3xl mx-auto" data-splitting>
-            <p class="text-base md:text-lg text-start md:text-center leading-relaxed">
-              I'm a frontend developer with a passion for 3D animation
-              and designing immersive 3D websites. I love bringing ideas
-              to life with engaging visuals and interactive experiences.
-              The combination of my passion for design, code &
-              interaction positions me in a unique place in the web
-              design world.
-            </p>
-          </h2>
-        </div>
-      </div>
-      <div class=" skills-container w-full mt-5 flex flex-1 flex-wrap justify-center gap-[3em]">
-        <span class="skills">
-          <img src="/img/spline.png" alt="spline" class="w-5 h-5">
-          spline
-        </span>
-        <span class="skills">
-          <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="50" cy="50" rx="45" ry="17" stroke="#61DAFB" strokeWidth="2" transform="rotate(0 50 50)" />
-            <ellipse cx="50" cy="50" rx="45" ry="17" stroke="#61DAFB" strokeWidth="2" transform="rotate(60 50 50)" />
-            <ellipse cx="50" cy="50" rx="45" ry="17" stroke="#61DAFB" strokeWidth="2" transform="rotate(120 50 50)" />
-            <circle cx="50" cy="50" r="7" fill="#61DAFB" />
-          </svg>
-          react
-        </span>
-        <span class="skills">
-          <img src="/img/Next.js.webp" alt="nextjs" class="w-5 h-5">
-          next
-        </span>
-        <span class="skills">
-          <!-- <img src="/img/GSAP.png" alt="gsap" class="w-5 gap-0 h-5"> -->
-          gsap
-        </span>
-      </div>
-    </section>
-    <div data-line class="w-full h-[1rem] opacity-[.5] relative md:mt-10 px-[1rem] ">
-      <div class="lineBlock"></div>
-    </div>
-    <section id="target-section" class=" px-[1.5rem] md:px-[2.5rem]  relative  bg-clr ">
-      <div class="relative top-0 right-0 bottom-0 left-0 mb-10 ">
-        <div class="h-full">
-          <div class="w-full relative">
-            <h1 class="uppercase text-start text-sm sm:w-[25rem] mt-[2rem] ">
-              <span>The project showcases my proficiency in front-end</span>
-              <span>problem-solving, and ability to deliver scalable,
-                high-performance applications.</span>
-            </h1>
-          </div>
-        </div>
-      </div>
-      <div class="relative container">
-        <div data-speed=".4" class="c_img">
-          <div class="w-full" data-speed=".4">
-            <span class="p-nmb mb-3">01 / 04</span>
-          </div>
-          <div data-speed=".4" class="c_img_content">
-            <div class="c_inside_content ">
-              <img
-                src="https://images.unsplash.com/photo-1733235014927-32494ec8233b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D"
-                alt="imgs" loading="eager" data-webgl-media />
-            </div>
-          </div>
-
-          <div class="flex flex-wrap flex-1 mt-3 gap-5 justify-between sm:items-center  w-full h-fit c_img_text">
-            <div class="flex flex-1 mt-3 gap-5 h-fit">
-              <h1 data-text>Movie Application</h1>
-            </div>
-            <div class="button_border">
-              <button data-text class="stylish-btn">Next.js</button>
-              <button data-text class="stylish-btn">tailwindcss</button>
-              <button data-text class="stylish-btn">React</button>
-            </div>
-          </div>
-        </div>
-        <div data-speed=".4" class="c_img">
-          <div class="w-full" data-speed=".4">
-            <span class="p-nmb">02 / 04</span>
-          </div>
-          <div data-speed=".4" class="c_img_content">
-            <div class="c_inside_content ">
-              <img
-                src="https://images.unsplash.com/photo-1733235014927-32494ec8233b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D"
-                alt="imgs" loading="eager" data-webgl-media />
-            </div>
-          </div>
-
-          <div class="flex flex-wrap flex-1 mt-3 gap-5 justify-between sm:items-center  w-full h-fit c_img_text">
-            <div class="flex flex-1 mt-3 gap-5 h-fit">
-              <h1 data-text>Movie Application</h1>
-            </div>
-            <div class="button_border">
-              <button data-text class="stylish-btn">Next.js</button>
-              <button data-text class="stylish-btn">tailwindcss</button>
-              <button data-text class="stylish-btn">React</button>
-            </div>
-          </div>
-        </div>
-        <div data-speed=".4" class="c_img">
-          <div class="w-full " data-speed=".4">
-            <span class="p-nmb">03 / 04</span>
-          </div>
-          <div data-speed=".4" class="c_img_content">
-            <div class="c_inside_content ">
-              <img
-                src="https://images.unsplash.com/photo-1733235014927-32494ec8233b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D"
-                alt="imgs" loading="eager" data-webgl-media />
-            </div>
-          </div>
-          <div class="flex flex-wrap flex-1 mt-3 gap-5 justify-between sm:items-center  w-full h-fit c_img_text">
-            <div class="flex flex-1 mt-3 gap-5 h-fit">
-              <h1 data-text>Movie Application</h1>
-            </div>
-            <div class="button_border">
-              <button data-text class="stylish-btn">Next.js</button>
-              <button data-text class="stylish-btn">tailwindcss</button>
-              <button data-text class="stylish-btn">React</button>
-            </div>
-          </div>
-
-        </div>
-        <div data-speed=".4" class="c_img">
-          <div class="w-full " data-speed=".4">
-            <span class="p-nmb">04 / 04</span>
-          </div>
-          <div data-speed=".4" class="c_img_content">
-            <div class="c_inside_content ">
-              <img
-                src="https://images.unsplash.com/photo-1733235014927-32494ec8233b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D"
-                alt="imgs" loading="eager" data-webgl-media />
-            </div>
-          </div>
-          <div class="flex flex-wrap flex-1 mt-3 gap-5 justify-between sm:items-center  w-full h-fit c_img_text">
-            <div class="flex flex-1 mt-3 gap-5 h-fit">
-              <h1 data-text>Movie Application</h1>
-            </div>
-            <div class="button_border">
-              <button data-text class="stylish-btn">Next.js</button>
-              <button data-text class="stylish-btn">tailwindcss</button>
-              <button data-text class="stylish-btn">React</button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="extra_work">
-        <div class="circle">
-          <!-- <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1440 272" fill="none"
-            class="cta_pixels_svg">
-            <path
-              d="M1440 0H0V204H85.7653V136H171.531V68H343.061V136H257.296V204H343.061V136H428.827V68H514.592V204H600.357V272H686.123V204H771.888V136H852.507V68H1011.17V136H1096.94V204H1182.7V68H1268.47V136H1354.23V204H1440V0Z"
-              fill="currentColor" class="cta_pixels_path"></path>
-          </svg> -->
-        </div>
-      </div>
-    </section>
-    <footer class="w-screen min-h-screen overflow-hidden footer  relative bg-white text-black">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1440 272" fill="white" class="cta_pixels_svg">
-        <path
-          d="M1440 0H0V204H85.7653V136H171.531V68H343.061V136H257.296V204H343.061V136H428.827V68H514.592V204H600.357V272H686.123V204H771.888V136H852.507V68H1011.17V136H1096.94V204H1182.7V68H1268.47V136H1354.23V204H1440V0Z"
-          fill="#0e0e0e" class="cta_pixels_path"></path>
+  <main id="main" class="min-h-screen w-screen overflow-x-hidden">
+    <div class="relative">
+      <svg class="w-full h-full svg pointer-events-none absolute top-0 z-[9999] cursor-none overflow-hidden">
+        <filter id="grainy">
+          <feTurbulence type="turbulence" baseFrequency="0.7"></feTurbulence>
+          <feColorMatrix type="saturate" values="0"></feColorMatrix>
+        </filter>
       </svg>
-      <div class="w-full z-[4] footer-container">
-        <div class="w-full ">
-          <div class="w-full h-[400px] relative">
-            <div class="w-full h-full  absolute top-0 left-0 z-[2] info-container">
-              <div class="left-container w-full p-10">
-                <div class="left-container-text">
-                  <span class="footer-let-text">let's work together</span>
-                </div>
-                <div class="left-bottom-contact flex flex-col justify-start gap-4 ">
-                  <span class="email-text-copie copie cursor-pointer">
-                    <span>
-                      &#8594;
-                    </span>
-                    <span data-text>
-                      gourav95411@gamil.com
-                    </span> 
-                  </span>
-                  <span class="phn-number-copie copie cursor-pointer">
-                    <span>
-                      +91
-                    </span>
-                    <span data-number>
-                      9541560130
-                    </span>
-                  </span>
-                </div>
-              </div>
-              <div class="contact-container">
-                <ul>
-                  <li>
-                    <a href="/">Instagram</a>
-                  </li>
-                  <li>
-                    <a href="/">Github</a>
-                  </li>
-                  <li>
-                    <a href="/">Linkedin</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="navbar-container">
-                <ul>
-                  <li><a href="/">Home</a></li>
-                  <li><a href="/">About</a></li>
-                  <li><a href="/">Work</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="w-full h-full footer-bg  pointer-events-none relative">
-              <div class="w-full h-full bg-purple-500  footer-inner-bg"></div>
-            </div>
+      <section class="w-full h-screen relative overflow-hidden sect_1 p-[1rem] bg-bg1">
+        <div class="relative canva-container">
+          <div
+            class="absolute left-[1rem] top-[4rem] sm:right-[2rem] z-[9] sm:top-5 flex sm:items-end xl:items-end flex-col">
+            <span class="text-[.9rem] capitalize text-[#d9d9d9]">Available for freelance work</span>
+            <span
+              class="text-start text-[.8rem] text-zinc-400 lg:text-zinc-500 hover:text-zinc-300 transform duration-500 ease-in-out">New
+              Delhi , India</span>
           </div>
-          <div class="footer_align_bottom p-5">
-            <span data-splitting class="footer_text ">
-              <span class="overflow-hidden">
-                <p class="uppercase">gr</p>
-              </span>
-            </span>
-            <div class="footer_lower_items text-black">
-              <span class="mt-5">
-                ©️ All rights reserved
-                <script>
-                  const date = new Date();
-                  document.write(date.getFullYear());
-                </script>
-              </span>
-              <span class="time text-xl mr-2 ml-3">
-                <script>
-                  function updateTime() {
-                    const timeElement = document.querySelector('.time');
-                    const now = new Date();
-                    const hours = now.getHours().toString().padStart(2, '0');
-                    const minutes = now.getMinutes().toString().padStart(2, '0');
-                    const seconds = now.getSeconds().toString().padStart(2, '0');
-                    timeElement.textContent = `${hours}:${minutes}:${seconds}`;
-                  }
-                  setInterval(updateTime, 1000);
-                  updateTime(); 
-                </script>
-              </span>
+          <div class="w-full h-full flex justify-center pointer-events-none overflow-hidden">
+            <div>
+              <canvas id="model-canvas" class="models-canvas absolute top-0 left-0 items-center z-[9]"></canvas>
             </div>
           </div>
         </div>
+        <div
+          class="relative bg-svg overflow-hidden w-full h-full flex justify-center items-center home_section pointer-events-none">
+          <div class="slider flex uppercase whitespace-nowrap w-full overflow-hidden">
+            <p class="text-[100px] sm:text-[8rem] lg:text-[10rem] first-text middle_text opacity-0">
+              Front-End Developer -
+            </p>
+            <p class="text-[100px] sm:text-[8rem] lg:text-[10rem] second-text middle_text opacity-0 ml-5">
+              Front-End Developer -
+            </p>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="w-fit h-fit absolute bottom-3 right-10 flex items-center">
+            <svg class="w-8 h-8 arrow-svg" viewBox="0 0 72 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="arrow-svg" fill-rule="evenodd" clip-rule="evenodd"
+                d="M52.1634 0.734116C55.2566 1.10779 58.1505 2.85161 61.8914 6.60912C66.8696 11.6081 70.1663 17.7862 71.5572 24.7116C71.8479 26.1814 71.9309 27.1114 71.9807 30.0012C72.0513 33.2688 71.9392 34.6182 71.4576 36.2582C71.0756 37.5868 70.5898 38.4047 69.6847 39.2725C68.4765 40.4309 67.8993 40.6136 68.4349 39.6669C68.709 39.1729 69.0785 37.6325 69.3733 35.7973C69.6266 34.1532 69.6349 29.1334 69.3733 27.3606C68.8294 23.5615 67.8827 20.3272 66.1763 16.5447C64.4324 12.6336 62.045 9.52794 58.0841 6.00293C57.3201 5.31786 56.3112 4.51239 55.8586 4.19684C51.6568 1.40673 46.7865 1.46486 42.8588 4.37953C38.686 7.48518 35.4724 13.9954 33.5376 23.246C33.2968 24.4044 32.9231 26.4928 32.9231 26.6838C32.9231 26.7544 33.2469 27.0284 33.6497 27.29C35.4724 28.4691 37.6314 30.4164 38.8895 32.019C42.3066 36.3744 44.1999 41.6225 44.6026 47.8919C44.8434 51.5706 44.0587 54.2818 42.2235 56.117C41.0859 57.2546 40.2887 57.62 39.0182 57.5494C38.2833 57.5079 38.0715 57.458 37.4072 57.1176C36.4689 56.6443 35.2191 55.4942 34.4137 54.3773C32.5785 51.828 31.4907 48.3487 31.1087 43.8064C30.9592 42.0626 31.0381 32.92 31.2083 31.1679C31.2789 30.5326 31.3412 29.6981 31.3412 29.312L31.362 28.6061L30.6063 28.1619C23.5023 23.9186 19.1759 28.0415 18.6112 39.5714C18.5116 41.6267 18.6112 45.3385 18.7815 45.4797C18.823 45.5087 19.2548 45.8409 19.7281 46.2146C21.4927 47.5639 23.0455 49.5112 24.0337 51.6287C24.6482 52.92 24.9098 53.6756 25.2212 55.0541C25.6364 56.8892 25.4828 58.0974 24.6773 59.3472C23.9631 60.4474 22.5224 61.6058 21.8664 61.6058C21.3931 61.6058 20.8284 61.0495 20.1724 59.9534C18.6403 57.3542 17.6438 53.9372 17.0169 49.2081C16.9463 48.6642 16.938 48.6518 16.2405 48.1701C15.846 47.8961 15.0322 47.4352 14.426 47.1404C11.1792 45.5669 8.24791 45.3883 6.35461 46.6464C5.93941 46.9204 5.71936 47.182 5.34568 47.8172C4.03366 50.0427 3.03718 53.0196 2.56385 56.063C2.36041 57.4041 2.39362 61.9089 2.61367 63.1171C3.63091 68.5811 5.93941 74.0534 9.10321 78.5084C9.95022 79.7083 10.6561 80.5844 10.7059 80.5263C10.7349 80.4972 10.6768 80.0529 10.5855 79.5381C10.3447 78.2468 10.3239 75.8097 10.5564 75.3156C10.7682 74.8506 12.238 73.2977 12.6947 73.0486C13.2095 72.7746 13.3299 72.8784 13.4088 73.6216C13.4379 73.9745 13.5583 74.5807 13.6704 74.9627C13.9029 75.7598 13.9237 76.2207 13.7617 76.6774C13.6621 76.939 13.6912 77.1922 13.9237 78.2012C14.2475 79.6004 14.862 81.4355 15.3063 82.3116C15.4682 82.6438 15.8626 83.2998 16.1533 83.7523C16.5768 84.3959 16.7802 84.5993 17.0501 84.6907C17.5359 84.8526 17.9054 85.1764 17.9054 85.438C17.9054 86.0027 16.2239 87.9292 14.9409 88.8343C14.2641 89.3201 13.9444 89.428 13.824 89.2371C13.7534 89.1042 13.1472 88.8343 9.63051 87.3105C6.45425 85.9279 4.48207 85.0311 3.36104 84.4291C2.72579 84.0969 2.67596 84.0471 2.73409 83.8022C2.83373 83.3994 3.3984 82.6936 4.33674 81.7968C5.34567 80.821 5.89789 80.4972 6.30063 80.6384C6.56221 80.7297 6.50407 80.6093 5.67368 79.2558C2.75069 74.5184 0.915518 69.8018 0.188923 65.135C-0.0643478 63.4908 -0.0643397 59.6918 0.197235 58.0808C0.94459 53.385 2.78806 49.1915 5.25848 46.6007C6.3463 45.4631 7.23483 44.7946 8.43475 44.2341C9.84642 43.5781 10.5398 43.4286 12.1549 43.4286C13.6164 43.4286 14.5631 43.6113 15.9249 44.1137C16.7428 44.4251 16.7221 44.4251 16.6515 44.1926C16.5519 43.9019 16.7719 39.2642 16.9421 37.9729C17.5276 33.5387 18.9766 30.2711 21.4678 27.7841C23.2116 26.0485 24.8434 25.1725 26.7782 24.9234C28.1691 24.7531 29.8216 25.0936 31.171 25.8285C31.4824 25.9904 31.7564 26.1191 31.7647 26.1025C31.7855 26.0942 31.9349 25.3469 32.1093 24.4708C33.1764 18.9985 34.8621 14.3193 37.1498 10.4621C39.5704 6.40983 42.099 3.78164 45.1341 2.1956C47.4218 1.00814 49.9711 0.472539 52.1675 0.742416L52.1634 0.734116ZM32.4705 30.4247C32.0387 36.3329 31.9349 39.3431 32.0969 41.8965C32.4083 46.7626 33.2262 49.7188 35.0115 52.43C36.4315 54.5849 38.4867 55.9592 40.3012 55.9592C41.418 55.9592 41.7211 55.8388 41.9121 55.3239C42.456 53.8541 42.6263 52.5712 42.5557 50.3748C42.4934 48.3404 42.2318 46.6754 41.4886 43.7109C40.8243 41.0412 40.3178 39.6088 39.3628 37.6615C37.8307 34.5351 35.9167 32.1062 33.4462 30.1424C33.031 29.8102 32.6615 29.5486 32.62 29.5486C32.5702 29.5486 32.5079 29.9431 32.4705 30.4247ZM19.9108 52.6501C20.434 54.614 21.09 56.1087 21.9162 57.267C22.5224 58.1348 22.5515 57.9106 22.0283 56.3412C21.4636 54.6389 19.9316 51.5747 19.7406 51.7657C19.7115 51.7948 19.7904 52.1892 19.9108 52.6542V52.6501Z"
+                fill="currentColor" />
+            </svg>
+          </div>
+        </div>
+      </section>
+      <section data-abt class="w-full min-h-screen relative py-10 px-4 md:px-[1.5rem]">
+        <h1 class="text-[.7rem] uppercase relative flex gap-2 justify-start items-start">
+          <span data-brc class="relative">
+            <span class="absolute left-1">[</span>
+          </span>
+          <span data-abt class="ml-2 mr-2">about</span>
+          <span data-brc class="relative">
+            <span class="absolute right-1">]</span>
+          </span>
+        </h1>
+        <div class="max-w-7xl mx-auto  grid-container">
+          <div data-hidden class="content relative mt-10 md:mt-16 ">
+            <h2 class="content__title content__title--left max-w-3xl mx-auto" data-splitting>
+              <p class="text-base md:text-lg text-start md:text-center leading-relaxed">
+                I'm a frontend developer with a passion for 3D animation
+                and designing immersive 3D websites. I love bringing ideas
+                to life with engaging visuals and interactive experiences.
+                The combination of my passion for design, code &
+                interaction positions me in a unique place in the web
+                design world.
+              </p>
+            </h2>
+          </div>
+        </div>
+        <div class=" skills-container w-full mt-5 flex flex-1 flex-wrap justify-center gap-[3em]">
+          <span class="skills">
+            <img src="/img/spline.png" alt="spline" class="w-5 h-5">
+            spline
+          </span>
+          <span class="skills">
+            <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="50" cy="50" rx="45" ry="17" stroke="#61DAFB" strokeWidth="2" transform="rotate(0 50 50)" />
+              <ellipse cx="50" cy="50" rx="45" ry="17" stroke="#61DAFB" strokeWidth="2" transform="rotate(60 50 50)" />
+              <ellipse cx="50" cy="50" rx="45" ry="17" stroke="#61DAFB" strokeWidth="2" transform="rotate(120 50 50)" />
+              <circle cx="50" cy="50" r="7" fill="#61DAFB" />
+            </svg>
+            react
+          </span>
+          <span class="skills">
+            <img src="/img/Next.js.webp" alt="nextjs" class="w-5 h-5">
+            next
+          </span>
+          <span class="skills">
+            <!-- <img src="/img/GSAP.png" alt="gsap" class="w-5 gap-0 h-5"> -->
+            gsap
+          </span>
+        </div>
+      </section>
+      <div data-line class="w-full h-[1rem] opacity-[.5] relative md:mt-10 px-[1rem] ">
+        <div class="lineBlock"></div>
       </div>
-    </footer>
+      <section id="target-section" class=" px-[1.5rem] md:px-[2.5rem]  relative  bg-clr ">
+        <div class="relative top-0 right-0 bottom-0 left-0 mb-10 ">
+          <div class="h-full">
+            <div class="w-full relative">
+              <h1 class="uppercase text-start text-sm sm:w-[25rem] mt-[2rem] ">
+                <span>The project showcases my proficiency in front-end</span>
+                <span>problem-solving, and ability to deliver scalable,
+                  high-performance applications.</span>
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="relative container">
+          <div data-speed=".4" class="c_img">
+            <div class="w-full" data-speed=".4">
+              <span class="p-nmb mb-3">01 / 04</span>
+            </div>
+            <div data-speed=".4" class="c_img_content">
+              <div class="c_inside_content ">
+                <img
+                  src="https://images.unsplash.com/photo-1733235014927-32494ec8233b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D"
+                  alt="imgs" loading="eager" data-webgl-media />
+              </div>
+            </div>
+
+            <div class="flex flex-wrap flex-1 mt-3 gap-5 justify-between sm:items-center  w-full h-fit c_img_text">
+              <div class="flex flex-1 mt-3 gap-5 h-fit">
+                <h1 data-text>Movie Application</h1>
+              </div>
+              <div class="button_border">
+                <button data-text class="stylish-btn">Next.js</button>
+                <button data-text class="stylish-btn">tailwindcss</button>
+                <button data-text class="stylish-btn">React</button>
+              </div>
+            </div>
+          </div>
+          <div data-speed=".4" class="c_img">
+            <div class="w-full" data-speed=".4">
+              <span class="p-nmb">02 / 04</span>
+            </div>
+            <div data-speed=".4" class="c_img_content">
+              <div class="c_inside_content ">
+                <img
+                  src="https://images.unsplash.com/photo-1733235014927-32494ec8233b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D"
+                  alt="imgs" loading="eager" data-webgl-media />
+              </div>
+            </div>
+
+            <div class="flex flex-wrap flex-1 mt-3 gap-5 justify-between sm:items-center  w-full h-fit c_img_text">
+              <div class="flex flex-1 mt-3 gap-5 h-fit">
+                <h1 data-text>Movie Application</h1>
+              </div>
+              <div class="button_border">
+                <button data-text class="stylish-btn">Next.js</button>
+                <button data-text class="stylish-btn">tailwindcss</button>
+                <button data-text class="stylish-btn">React</button>
+              </div>
+            </div>
+          </div>
+          <div data-speed=".4" class="c_img">
+            <div class="w-full " data-speed=".4">
+              <span class="p-nmb">03 / 04</span>
+            </div>
+            <div data-speed=".4" class="c_img_content">
+              <div class="c_inside_content ">
+                <img
+                  src="https://images.unsplash.com/photo-1733235014927-32494ec8233b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D"
+                  alt="imgs" loading="eager" data-webgl-media />
+              </div>
+            </div>
+            <div class="flex flex-wrap flex-1 mt-3 gap-5 justify-between sm:items-center  w-full h-fit c_img_text">
+              <div class="flex flex-1 mt-3 gap-5 h-fit">
+                <h1 data-text>Movie Application</h1>
+              </div>
+              <div class="button_border">
+                <button data-text class="stylish-btn">Next.js</button>
+                <button data-text class="stylish-btn">tailwindcss</button>
+                <button data-text class="stylish-btn">React</button>
+              </div>
+            </div>
+
+          </div>
+          <div data-speed=".4" class="c_img">
+            <div class="w-full " data-speed=".4">
+              <span class="p-nmb">04 / 04</span>
+            </div>
+            <div data-speed=".4" class="c_img_content">
+              <div class="c_inside_content ">
+                <img
+                  src="https://images.unsplash.com/photo-1733235014927-32494ec8233b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D"
+                  alt="imgs" loading="eager" data-webgl-media />
+              </div>
+            </div>
+            <div class="flex flex-wrap flex-1 mt-3 gap-5 justify-between sm:items-center  w-full h-fit c_img_text">
+              <div class="flex flex-1 mt-3 gap-5 h-fit">
+                <h1 data-text>Movie Application</h1>
+              </div>
+              <div class="button_border">
+                <button data-text class="stylish-btn">Next.js</button>
+                <button data-text class="stylish-btn">tailwindcss</button>
+                <button data-text class="stylish-btn">React</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
+  <footer class="w-screen min-h-screen  footer  relative bg-white text-black">
+    <div class="w-full h-[400px] relative">
+      <div class="w-full absolute top-0 left-0 z-[2] info-container ">
+        <div class="left-container w-full p-10">
+          <div class="left-container-text w-full ">
+            <span class="footer-let-text">let's work together</span>
+          </div>
+          <div class="left-bottom-contact  flex items-center justify-center ">
+            <a data-scroll-direction="horizontal" data-scroll data-speed="-.2" aria-label="gourav95411@gamil.com"
+              href="#" onclick="copyToClipboard('gourav95411@gmail.com')" class="email-copie-button">
+              <div class="text-container">
+                <div class="original-text" id="original-text">gourav95411@gamil.com</div>
+                <div class="hover-text" id="hover-text">gourav95411@gamil.com</div>
+              </div>
+              <div class="copie-bg"></div>
+            </a>
+          </div>
+        </div>
+        <div class="contact-container">
+          <span class="flex flex-1 items-center gap-4">
+            <span class="bg-green-600 w-2 h-2 rounded-sm"></span>
+            socials
+          </span>
+          <ul>
+            <li class="content__item">
+              <a href="#" class="link link--metis">Github</a>
+            </li>
+            <li class="content__item">
+              <a href="#" class="link link--metis">Linkedin</a>
+            </li>
+            <li class="content__item">
+              <a href="#" class="link link--metis">Instagram</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-container relative">
+          <span class="flex flex-1 items-center gap-4">
+            <div class="bg-green-600 w-2 h-2 rounded-sm"></div>
+            Navigation
+          </span>
+          <ul>
+            <li class="content__item">
+              <a href="#" class="link link--metis">Home</a>
+            </li>
+            <li class="content__item">
+              <a href="#" class="link link--metis">About</a>
+            </li>
+            <li class="content__item">
+              <a href="#" class="link link--metis">Work</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="w-full h-full footer-bg  pointer-events-none relative">
+        <div class="w-full h-full bg-purple-500  footer-inner-bg"></div>
+      </div>
+    </div>
+    <div class="footer_align_bottom">
+      <span  class="footer_text w-full">
+        <svg width="1430" height="290" viewBox="0 0 1430 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="Group 8">
+          <path class="footer_svg_text" id="G" d="M175.252 258.357C170.564 260.701 165.486 262.752 160.018 264.51C154.549 266.268 149.031 267.684 143.465 268.758C137.898 269.832 132.381 270.613 126.912 271.102C121.443 271.688 116.365 271.98 111.678 271.98C96.4434 271.98 82.8203 269.441 70.8086 264.363C58.7969 259.285 48.5918 252.059 40.1934 242.684C31.8926 233.211 25.5449 221.736 21.1504 208.26C16.7559 194.783 14.5586 179.598 14.5586 162.703C14.5586 145.418 16.9512 129.793 21.7363 115.828C26.5215 101.863 33.3574 89.9492 42.2441 80.0859C51.1309 70.125 61.8242 62.5078 74.3242 57.2344C86.9219 51.8633 100.984 49.1777 116.512 49.1777C125.398 49.1777 134.871 50.0566 144.93 51.8145C154.988 53.4746 164.559 55.7695 173.641 58.6992L175.398 112.166H165.145C164.266 101.521 162.312 92.8789 159.285 86.2383C156.258 79.5 152.498 74.2754 148.006 70.5645C143.514 66.8535 138.387 64.3145 132.625 62.9473C126.961 61.5801 120.955 60.8965 114.607 60.8965C107.967 60.8965 101.668 61.4824 95.7109 62.6543C89.8516 63.8262 84.3828 65.877 79.3047 68.8066C74.2266 71.7363 69.6367 75.6426 65.5352 80.5254C61.5312 85.4082 58.0645 91.6094 55.1348 99.1289C52.3027 106.648 50.1055 115.584 48.543 125.936C47.0781 136.189 46.3457 148.152 46.3457 161.824C46.3457 175.301 47.0293 187.117 48.3965 197.273C49.8613 207.332 51.9121 215.975 54.5488 223.201C57.2832 230.428 60.5547 236.434 64.3633 241.219C68.2695 246.004 72.6152 249.764 77.4004 252.498C82.1855 255.232 87.4102 257.186 93.0742 258.357C98.7383 259.432 104.744 259.969 111.092 259.969C117.342 259.969 123.445 259.725 129.402 259.236C135.457 258.65 141.219 257.332 146.688 255.281V190.389H114.461V178.67H201.619V190.389H175.252V258.357Z" fill="black"/>
+          <path class="footer_svg_text" id="O" d="M243.164 162.557C243.164 145.076 245.508 129.354 250.195 115.389C254.98 101.424 261.621 89.5586 270.117 79.793C278.613 69.9297 288.721 62.3613 300.439 57.0879C312.256 51.8145 325.195 49.1777 339.258 49.1777C353.125 49.1777 365.723 51.7656 377.051 56.9414C388.477 62.0195 398.242 69.2949 406.348 78.7676C414.453 88.2402 420.703 99.7148 425.098 113.191C429.59 126.668 431.836 141.756 431.836 158.455C431.836 174.861 429.639 190.047 425.244 204.012C420.947 217.879 414.697 229.842 406.494 239.9C398.291 249.959 388.232 257.82 376.318 263.484C364.502 269.148 351.123 271.98 336.182 271.98C322.119 271.98 309.375 269.441 297.949 264.363C286.523 259.285 276.758 252.01 268.652 242.537C260.547 233.064 254.248 221.59 249.756 208.113C245.361 194.539 243.164 179.354 243.164 162.557ZM274.951 161.678C274.951 175.154 275.635 186.971 277.002 197.127C278.467 207.186 280.469 215.877 283.008 223.201C285.645 230.428 288.818 236.434 292.529 241.219C296.24 246.004 300.391 249.812 304.98 252.645C309.57 255.477 314.551 257.479 319.922 258.65C325.293 259.725 330.957 260.262 336.914 260.262C342.871 260.262 348.535 259.725 353.906 258.65C359.375 257.479 364.453 255.477 369.141 252.645C373.828 249.715 378.076 245.809 381.885 240.926C385.693 236.043 388.916 229.891 391.553 222.469C394.287 214.949 396.387 206.062 397.852 195.809C399.316 185.457 400.049 173.396 400.049 159.627C400.049 146.15 399.316 134.383 397.852 124.324C396.484 114.168 394.482 105.428 391.846 98.1035C389.307 90.7793 386.182 84.7246 382.471 79.9395C378.76 75.1543 374.609 71.3457 370.02 68.5137C365.527 65.6816 360.596 63.7285 355.225 62.6543C349.854 61.4824 344.189 60.8965 338.232 60.8965C332.275 60.8965 326.562 61.4824 321.094 62.6543C315.625 63.8262 310.547 65.8281 305.859 68.6602C301.172 71.4922 296.924 75.3984 293.115 80.3789C289.307 85.2617 286.035 91.4141 283.301 98.8359C280.664 106.258 278.613 115.145 277.148 125.496C275.684 135.848 274.951 147.908 274.951 161.678Z" fill="black"/>
+          <path class="footer_svg_text" id="U" d="M526.176 198.152C526.176 206.551 526.518 214.461 527.201 221.883C527.982 229.305 529.984 235.799 533.207 241.365C536.527 246.932 541.508 251.375 548.148 254.695C554.887 257.918 564.213 259.529 576.127 259.529C588.236 259.529 598.002 257.869 605.424 254.549C612.846 251.131 618.559 246.492 622.562 240.633C626.664 234.676 629.398 227.693 630.766 219.686C632.133 211.58 632.816 202.84 632.816 193.465V65.877H603.52V54.1582H675.15V65.877H646V191.854C646 204.939 644.926 216.463 642.777 226.424C640.629 236.385 636.771 244.734 631.205 251.473C625.639 258.211 618.119 263.338 608.646 266.854C599.174 270.271 587.113 271.98 572.465 271.98C559.379 271.98 548.1 270.564 538.627 267.732C529.154 264.9 521.391 260.506 515.336 254.549C509.281 248.592 504.789 241.023 501.859 231.844C499.027 222.566 497.611 211.58 497.611 198.885V65.877H468.314V54.1582H555.473V65.877H526.176V198.152Z" fill="black"/>
+          <path class="footer_svg_text" id="R" d="M814.453 54.1582C829.98 54.1582 843.066 55.3301 853.711 57.6738C864.355 60.0176 872.949 63.3379 879.492 67.6348C886.035 71.9316 890.723 77.1562 893.555 83.3086C896.387 89.3633 897.803 96.1016 897.803 103.523C897.803 109.969 896.777 116.072 894.727 121.834C892.773 127.596 889.795 132.82 885.791 137.508C881.787 142.195 876.758 146.248 870.703 149.666C864.746 152.986 857.715 155.525 849.609 157.283V157.869C856.348 159.432 861.865 161.727 866.162 164.754C870.557 167.781 874.072 171.492 876.709 175.887C879.443 180.281 881.543 185.311 883.008 190.975C884.57 196.541 885.938 202.693 887.109 209.432C888.281 216.365 889.307 222.713 890.186 228.475C891.162 234.139 892.432 239.07 893.994 243.27C895.557 247.371 897.656 250.594 900.293 252.938C903.027 255.184 906.787 256.307 911.572 256.307C912.451 256.307 913.672 256.258 915.234 256.16C916.895 256.062 918.701 255.867 920.654 255.574V266.854C918.994 267.244 917.188 267.586 915.234 267.879C913.281 268.172 911.279 268.367 909.229 268.465C907.275 268.66 905.322 268.758 903.369 268.758C901.514 268.855 899.854 268.904 898.389 268.904C889.893 268.904 883.203 268.025 878.32 266.268C873.535 264.412 869.824 261.58 867.188 257.771C864.648 253.963 862.842 249.178 861.768 243.416C860.693 237.654 859.668 230.818 858.691 222.908C857.227 211.385 855.762 201.717 854.297 193.904C852.832 186.092 850.781 179.842 848.145 175.154C845.508 170.369 841.943 167 837.451 165.047C832.959 162.996 826.855 161.971 819.141 161.971H791.602V255.281H822.363V267H733.74V255.281H763.037V65.877H733.74V54.1582H814.453ZM791.602 150.252H811.084C821.631 150.252 830.42 149.373 837.451 147.615C844.58 145.857 850.293 143.123 854.59 139.412C858.984 135.604 862.061 130.818 863.818 125.057C865.674 119.197 866.602 112.166 866.602 103.963C866.602 97.127 865.869 91.3164 864.404 86.5312C862.939 81.6484 860.205 77.6934 856.201 74.666C852.295 71.6387 846.826 69.4414 839.795 68.0742C832.861 66.6094 823.828 65.877 812.695 65.877H791.602V150.252Z" fill="black"/>
+          <path class="footer_svg_text" id="A" d="M1048.27 255.281V267H976.93V255.281H1004.76L1080.93 51.9609H1092.51L1163.99 255.281H1192.99V267H1102.91V255.281H1133.38L1111.4 192.732H1042.26L1018.97 255.281H1048.27ZM1077.71 98.25L1046.8 180.867H1107.3L1078.3 98.25H1077.71Z" fill="black"/>
+          <path class="footer_svg_text" id="V" d="M1329.56 222.908H1330.14L1388.88 65.877H1359.59V54.1582H1429.46V65.877H1403.09L1326.92 269.197H1315.35L1243.86 65.877H1214.86V54.1582H1304.95V65.877H1274.48L1329.56 222.908Z" fill="black"/>
+          </g>
+        </svg>                    
+      </span>
+      <!-- <div class="footer_lower_items text-black">
+        <span class="mt-5">
+          ©️ All rights reserved
+          <script>
+            const date = new Date();
+            document.write(date.getFullYear());
+          </script>
+        </span>
+        <span class="time text-xl mr-2 ml-3">
+          <script>
+            function updateTime() {
+              const timeElement = document.querySelector('.time');
+              const now = new Date();
+              const hours = now.getHours().toString().padStart(2, '0');
+              const minutes = now.getMinutes().toString().padStart(2, '0');
+              const seconds = now.getSeconds().toString().padStart(2, '0');
+              timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+            }
+            setInterval(updateTime, 1000);
+            updateTime(); 
+          </script>
+        </span>
+      </div> -->
+    </div>
+    </div>
+  </footer>
   <script type="module" src="/src/Three.js"></script>
   <script type="module" src="/src/Model.js"></script>
   <script type="module" src="/src/Ani.js"></script>
@@ -393,13 +390,9 @@
     ));
   </script>
   <script>
-function copyToClipboard(text) {
-  navigator.clipboard.writeText(text).then(() => {
-    alert('Email copied to clipboard!');
-  }).catch(err => {
-    console.error('Failed to copy: ', err);
-  });
-}
+    function copyToClipboard(text) {
+      document.execCommand(text);
+    }
   </script>
 </body>
 

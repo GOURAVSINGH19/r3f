@@ -33,11 +33,13 @@
   padding: 0;
   box-sizing: border-box;
   text-rendering: optimizeLegibility;
-  /* font-family: Kola-Regular; */
+  font-family: Kola-Regular;
 }
 
-html {
-  height: 100vh;
+html,
+body {
+  height: 100%;
+  width: 100%;
 }
 
 body:after,
@@ -52,7 +54,6 @@ body:before {
   pointer-events: none;
   opacity: 20%;
   scroll-behavior: smooth;
-  /* color: #f3edd8; */
 }
 
 body::-webkit-scrollbar {
@@ -474,7 +475,7 @@ canvas {
   height: 20%;
 }
 
-.cta_pixels_path{
+.cta_pixels_path {
   background-color: var(--color-dark);
   overflow: hidden;
 }
@@ -523,6 +524,7 @@ canvas {
 
 .footer {
   color: var(--color-dark);
+  clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
 }
 .footer-container {
   display: flex;
@@ -534,42 +536,170 @@ canvas {
 .info-container {
   display: flex;
   justify-content: space-between;
-  align-items:center;
+  align-items: center;
   padding: 40px;
   gap: 5em;
 }
 
-.footer-let-text{
-  font-size: clamp(1rem,7vw,15rem);
+.footer-let-text {
+  font-size: clamp(1rem, 6vw, 15rem);
   font-weight: 800;
-  letter-spacing: -.3vw;
+  letter-spacing: -0.2vw;
 }
 
-.copie{
-  font-size: clamp(1rem,1vw,4rem);
+.left-bottom-contact {
+  width: fit-content;
+  position: relative;
+}
+
+.email-copie-button {
   text-transform: uppercase;
-  font-weight: 800;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  height: 3rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copie-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 0.5rem;
+  background-color: #fff;
+}
+
+.email-copie-button:hover .copie-bg {
+  transform: scale(0.98);
+  transition: transform 0.3s ease-in-out;
+}
+
+.text-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  height: 1.5em;
+}
+
+.original-text,
+.hover-text {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hover-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.hover-text .char {
+  transform: translateY(100%);
+}
+.email-copie-button:hover .original-text .char {
+  transform: translateY(-100%);
+}
+.email-copie-button:hover .hover-text .char {
+  transform: translateY(0);
+}
+
+.content__item {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  counter-increment: itemcounter;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.content__item::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+}
+
+.link {
+  cursor: pointer;
+  font-size: 18px;
+  position: relative;
+  white-space: nowrap;
+  color: var(--color-text);
+}
+
+.link::before,
+.link::after {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  top: 100%;
+  left: 0;
+  pointer-events: none;
+}
+
+.link::before {
+  content: "";
+  /* show by default */
+}
+
+.link--metis {
+  text-transform: uppercase;
+  font-size: 1rem;
+  text-align: start;
+}
+
+.link--metis::before {
+  transform-origin: 100% 50%;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.3s;
+}
+
+.link--metis:hover::before {
+  transform-origin: 0% 50%;
+  transform: scale3d(1, 1, 1);
 }
 
 .contact-container {
   width: fit-content;
   display: flex;
-  justify-content: end;
-  align-items: start;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
   margin-right: 50px;
 }
 
 .footer_align_bottom {
   width: 100%;
-  height: 40vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
 }
 
-.footer_text {
-  font-size: clamp(0.8rem, 16.5vw, 16.5rem);
+.footer_text{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.footer_text p {
+  font-size: clamp(0.8rem, 20.5vw, 16.5rem);
   font-family: serif;
   height: fit-content;
   display: inline-block;
@@ -577,14 +707,15 @@ canvas {
   color: #e4e4e4;
 }
 
-.footer-bg{
+.footer-bg {
   display: flex;
-  justify-content:  center;
+  justify-content: center;
   align-items: center;
 }
 
 .char {
-  letter-spacing: -.3px;
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (max-width: 768px) {
