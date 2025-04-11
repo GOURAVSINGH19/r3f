@@ -21,7 +21,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
-import SplitType from "split-type";
 import Lenis from "lenis";
 Splitting();
 gsap.registerPlugin(ScrollTrigger, Flip);
@@ -161,92 +160,93 @@ document.addEventListener("DOMContentLoaded", function () {
   //         });
 
   //preloader and home animation
-  // const startLoader = () => {
-  //   let randomWidth = 10;
-  //   const increaseWidth = () => {
-  //     if (randomWidth < 100) {
-  //       randomWidth += 1;
-  //       gsap.to(preline, {
-  //         width: `${randomWidth}%`,
-  //         ease: "slow(.1,.4)",
-  //         transformOrigin: "50% 50%",
-  //       });
-  //       requestAnimationFrame(increaseWidth);
-  //     } else {
-  //       if (randomWidth === 100) {
-  //         gsap.to(loadingtext, {
-  //           opacity: 0,
-  //           duration: 2,
-  //           ease: "power2.inOut",
-  //         });
-  //         gsap.to(preline, {
-  //           opacity: 0,
-  //           duration: 2,
-  //           ease: "power2.inOut",
-  //         });
-  //         gsap.to(enterButton, {
-  //           opacity: 1,
-  //           display: "block",
-  //           duration: 4,
-  //           ease: "bounce.inOut",
-  //         });
-  //       }
-  //     }
-  //   };
-  //   increaseWidth();
-  // };
-  // startLoader();
+  const startLoader = () => {
+    let randomWidth = 30;
+    const increaseWidth = () => {
+      if (randomWidth < 100) {
+        randomWidth += 1;
+        gsap.to(preline, {
+          width: `${randomWidth}%`,
+          ease: "slow(.1,.4)",
+          transformOrigin: "50% 50%",
+        });
+        requestAnimationFrame(increaseWidth);
+      } else {
+        if (randomWidth === 100) {
+          gsap.to(loadingtext, {
+            opacity: 0,
+            duration: 2,
+            ease: "power2.inOut",
+          });
+          gsap.to(preline, {
+            opacity: 0,
+            duration: 2,
+            ease: "power2.inOut",
+          });
+          gsap.to(enterButton, {
+            opacity: 1,
+            display: "block",
+            duration: 4,
+            ease: "bounce.inOut",
+          });
+        }
+      }
+    };
+    increaseWidth();
+  };
+  startLoader();
 
-  // const EnterButton = () => {
-  //   enterButton.addEventListener("click", () => {
-  //     tl.to(preloader, {
-  //       opacity: 0,
-  //       transformOrigin: "50% 50%",
-  //       duration: 1,
-  //       display: "none",
-  //       ease: "power2.in",
-  //       delay: 1,
-  //       onComplete: () => {
-  //         gsap.to("#main", {
-  //           duration: 1,
-  //           opacity: 1,
-  //           ease: "power2.in",
-  //         });
-  //         gsap.to(".middle_text", {
-  //           duration: 1,
-  //           opacity: 0.6,
-  //           delay: 1,
-  //           ease: "power4.out",
-  //         });
+  const EnterButton = () => {
+    const tl = gsap.timeline();
+    enterButton.addEventListener("click", () => {
+      tl.to(preloader, {
+        opacity: 0,
+        transformOrigin: "50% 50%",
+        duration: 1,
+        display: "none",
+        ease: "power2.in",
+        delay: 1,
+        onComplete: () => {
+          gsap.to("#main", {
+            duration: 1,
+            opacity: 1,
+            ease: "power2.in",
+          });
+          gsap.to(".middle_text", {
+            duration: 1,
+            opacity: 0.6,
+            delay: 1,
+            ease: "power4.out",
+          });
 
-  //         gsap.to(".middle_text", {
-  //           scrollTrigger: {
-  //             trigger: ".home_section",
-  //             scrub: 0.25,
-  //             start: 0,
-  //             end: window.innerHeight,
-  //           },
-  //           x: "-500px",
-  //         });
-  //         requestAnimationFrame(animate);
-  //       },
-  //     });
-  //   });
-  // };
-  // EnterButton();
+          gsap.to(".middle_text", {
+            scrollTrigger: {
+              trigger: ".home_section",
+              scrub: 0.25,
+              start: 0,
+              end: window.innerHeight,
+            },
+            x: "-500px",
+          });
+          requestAnimationFrame(animate);
+        },
+      });
+    });
+  };
+  EnterButton();
 
-  // let direction = -1;
-  // let xPercent = 0;
-  // const animate = () => {
-  //   if (xPercent < -100) {
-  //     xPercent = 0;
-  //   } else if (xPercent > 0) {
-  //     xPercent = -100;
-  //   }
-  //   gsap.set(".middle_text", { xPercent: xPercent });
-  //   requestAnimationFrame(animate);
-  //   xPercent += 0.1 * direction;
-  // };
+  let direction = -1;
+  let xPercent = 0;
+  const animate = () => {
+    if (xPercent < -100) {
+      xPercent = 0;
+    } else if (xPercent > 0) {
+      xPercent = -100;
+    }
+    gsap.set(".middle_text", { xPercent: xPercent });
+    requestAnimationFrame(animate);
+    xPercent += 0.1 * direction;
+  };
 
   fx19Titles.forEach((title) => {
     const chars = title.querySelectorAll(".word");
@@ -288,39 +288,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
   lineBlock();
-
-  const Footertimeline = gsap.timeline();
-
-  const FooterBg = () => {
-    const tl = gsap.timeline({
-      defaults: {
-        ease: "power3.inOut",
-        duration: 2,
-      },
-      scrollTrigger: {
-        trigger: ".footer",
-        start: "top top",
-        end: "top top",
-        scrub: 1,
-      },
-    });
-
-    tl.fromTo(
-      FooterInnerBg,
-      {
-        width: "105%",
-        height: "104%",
-        duration: 1,
-        ease: "power3.inOut",
-      },
-      {
-        width: "97%",
-        height: "97%",
-        borderRadius: "16px",
-        ease: "power3.inOut",
-      }
-    );
-  };
 
   // const FooterText = () => {
   //   footerText.forEach((title) => {
