@@ -1,6 +1,4 @@
 import {
-  slider,
-  sections,
   textElement,
   preloader,
   preline,
@@ -9,11 +7,10 @@ import {
   line,
   fx19Titles,
   footerText,
-  Footerstart,
-  FooterInnerBg,
   numberElement,
   originalText,
   hoverText,
+  footerSvg,
 } from "./Dom";
 import gsap from "gsap";
 import { Flip } from "gsap/Flip";
@@ -375,6 +372,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
   TextHoverTransition();
   NumberHoverTransition();
+
+  // svg
+
+  const Footer_svg = () => {
+    const tl = gsap.timeline({
+      defaults: {
+        duration: 2,
+        stagger: {
+          each: 0.1,
+          from: "center",
+        },
+      },
+      scrollTrigger: {
+        trigger: ".footer",
+        start: "top top",
+        end: "bottom bottom",
+        markers: true,
+        scrub: 1,
+        once:true
+      },
+    });
+
+    tl.from(footerSvg, {
+      yPercent: 100,
+      ease:"expo.inOut"
+    });
+  };
+
+  Footer_svg();
 
   // Footertimeline.add(FooterBg()).add(FooterText(), "-=1.5");
   window.addEventListener("resize", () => {
